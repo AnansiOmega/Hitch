@@ -27,11 +27,13 @@ end
 x = ["8'6", "9'6"]
 
 
+
 200.times do
     Delivery.create(broker_id: Broker.all.sample.id, driver_id: Driver.all.sample.id, supplier_id: Supplier.all.sample.id, 
     receiver_id: Receiver.all.sample.id, hazardous: Faker::Boolean.boolean, pickup_time: "#{rand(1..12)} o'clock", arrival_time: "#{rand(1..12)} o'clock", 
     dropoff_time: "#{rand(1..12)} o'clock", height: x.sample, weight: "#{rand(6..40)} tons", 
     description: "#{rand(50..5000)} pallets of #{Faker::Construction.material}")
+
 end
 
 puts "donezo"
