@@ -1,8 +1,13 @@
 <h1>Driver Index</h1>
 
+<p><%= button_to "Create A New Driver", new_driver_path, method: :get %></p>
 
 <ul>
   <% @drivers.each do |driver| %>
     <li><%= link_to driver.name, driver_path(driver) %></li>
   <% end %>
 </ul>
+
+
+
+

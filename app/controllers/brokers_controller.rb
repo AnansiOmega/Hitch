@@ -18,13 +18,9 @@ class BrokersController < ApplicationController
         redirect_to broker_path(broker)
     end
 
-
     private
-
 
     def broker_params
         params.require(:broker).permit(:name,:email, :password)
     end
-
-
 end

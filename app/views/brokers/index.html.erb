@@ -1,5 +1,5 @@
 <h1> All the brokers </h1>
-<%= button_to "Create A New Broker", new_broker_path, method: :get %>
+<p><%= button_to "Create A New Broker", new_broker_path, method: :get %></p>
 
 <% @brokers.each do |broker| %>
 <%= link_to broker.name, broker_path(broker) %> <br>
