@@ -1,3 +1,4 @@
+
 Delivery.destroy_all
 Reciever.destroy_all
 Supplier.destroy_all
