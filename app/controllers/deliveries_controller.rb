@@ -1,5 +1,14 @@
 class DeliveriesController < ApplicationController
 
+    def index
+        @deliveries = Delivery.all
+    end
+
+    def show
+        @delivery = Delivery.find(params[:id])
+    end
+
+
 
 
 
@@ -31,6 +40,7 @@ class DeliveriesController < ApplicationController
     def delivery_params
         params.require(:delivery).permit(:broker_id, :supplier_id, :receiver_id, :driver_id, :height, :weight, :hazardous, :pickup_time, :description, :status)
     end
+
 
 
 end
