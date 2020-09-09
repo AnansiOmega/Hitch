@@ -6,11 +6,11 @@ class Driver < ApplicationRecord
     has_many :suppliers, through: :deliveries
     
 
-    # def driver_deliveries
-    #         if self.deliveries == []
-    #             self.deliveries
-    #         end
-    # end
+    def driver_deliveries
+            if self.deliveries == []
+                self.deliveries
+            end
+    end
 
     def new_delivery
         self.deliveries.filter do |delivery|
