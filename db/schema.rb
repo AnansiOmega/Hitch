@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_191930) do
     t.integer "supplier_id"
     t.integer "receiver_id"
     t.boolean "hazardous", default: false
-    t.string "pickup_time"
-    t.string "arrival_time"
-    t.string "dropoff_time"
+    t.datetime "scheduled_pickup"
+    t.datetime "actual_arrival"
+    t.datetime "actual_dropoff"
     t.boolean "pickup", default: false
     t.boolean "dropoff", default: false
-    t.string "status"
+    t.string "status", default: "Awaiting Pickup"
     t.string "height"
     t.string "weight"
     t.text "description"

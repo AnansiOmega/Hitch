@@ -1,12 +1,12 @@
 class DeliveriesController < ApplicationController
     before_action :authorized_broker
+    before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
 
     def index
         @deliveries = Delivery.all
     end
 
     def show
-        @delivery = Delivery.find(params[:id])
     end
 
     def new
@@ -19,19 +19,28 @@ class DeliveriesController < ApplicationController
     end
 
     def destroy 
-        delivery = Delivery.find(params[:id])
-        delivery.destroy
+        @delivery.destroy
         redirect_back fallback_location: brokers_path
     end
 
+    def pickup
+        @delivery.pickup
+        redirect_to delivery_path(@delivery)
+    end
 
+    def dropoff
+        @delivery.dropoff
+        redirect_to delivery_path(@delivery)
+    end
 
     private
 
-    def delivery_params
-        params.require(:delivery).permit(:broker_id, :supplier_id, :receiver_id, :driver_id, :height, :weight, :hazardous, :pickup_time, :description, :status)
+    def find_delivery
+        @delivery = Delivery.find(params[:id])
     end
 
-
+    def delivery_params
+        params.require(:delivery).permit(:broker_id, :supplier_id, :receiver_id, :driver_id, :height, :weight, :hazardous, :scheduled_pickup, :description, :status)
+    end
 
 end
