@@ -1,10 +1,6 @@
-<h1>Please select an option below</h1>
 
-<p><%= button_to "Sign up", new_driver_path, method: :get %></p>
-<p><%= button_to "Login", driver_login_path, method: :get %></p>
+<img class="logo" src="/assets/logo.png" alt="logo"><br>
 
+<button><%= link_to "Login", driver_login_path, method: :get %></button><br><br>
 
-
-  <% @drivers.each do |driver| %>
-    <p><%= link_to driver.name, driver_path(driver) %></p>
-  <% end %>
+<button><%= link_to "Sign up", new_driver_path, method: :get %></button>

@@ -1,13 +1,15 @@
-<h1> Login </h1>
+<h1> Driver Login </h1>
 
 <h3> <% if flash[:error] %>
 <%= flash[:error] %>
 <% end %></h3>
 
 <%= form_for :driver, url: driver_logging_path do |f| %>
-<%= f.label :name %>
+<p><%= f.label :name %></p>
 <%= f.text_field :name %>
-<%= f.label :password %>
-<%= f.text_field :password %>
-<%= f.submit %>
+
+<p><%= f.label :password %></p>
+<%= f.text_field :password %><br><br>
+
+<%= f.submit value: "Login" %>
 <% end %>

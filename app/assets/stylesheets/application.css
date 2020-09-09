@@ -13,3 +13,17 @@ body {
       width: 200px;
   }
   
+ button {
+    width: 10%;
+    background-color: #FFFFFF;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-color: black;
+    border-width: 3px;
+ }
+
+ button:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+ }
+
