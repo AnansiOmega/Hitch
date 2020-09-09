@@ -1,0 +1,9 @@
+<h1> Trucks In Transit </h1>
+
+
+<% @broker.transit_delivery.each do |delivery| %>
+<h3>Driver: <%= delivery.driver.name %> </h3>
+<h3>Traveling From: <%= delivery.supplier.location %><br>
+<h3>Heading to: <%= delivery.receiver.location %><br>
+<h3>ETA: <%= "#{rand(3..20)} Hours "%><br><br><br>
+<% end %>
