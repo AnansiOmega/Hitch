@@ -1,8 +1,10 @@
 class DeliveriesController < ApplicationController
-    # before_action :authorized_broker, :authorized_driver
-    # before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
-    # skip_before_action :authorized_driver, except: [:pickup, :dropoff]
-   
+    before_action :authorized_broker, :authorized_driver
+    before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
+    skip_before_action :authorized_driver, except: [:pickup, :dropoff]
+    skip_before_action :authorized_broker
+
+
     def index
         @deliveries = Delivery.all
     end

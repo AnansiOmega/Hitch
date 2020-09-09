@@ -1,0 +1,8 @@
+<h1> Completed Deliveries </h1>
+
+<% @broker.delivered_delivery.each do |delivery| %>
+<h3>Driver: <%= delivery.driver.name %></h3>
+<h3>Time of Delivery: <%= delivery.actual_dropoff %></h3>
+<h3>Location: <%= delivery.receiver.location %></h3>
+<h3>Product: <%= delivery.description %></h3>
+<% end %>
