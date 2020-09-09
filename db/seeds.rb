@@ -25,7 +25,7 @@ end
 end
 
 x = ["8'6", "9'6"]
-
+y = ["Awaiting Pickup", "In Transit", "Delivery Completed"]
 
 
 200.times do
@@ -36,7 +36,8 @@ x = ["8'6", "9'6"]
     receiver_id: Receiver.all.sample.id, 
     hazardous: Faker::Boolean.boolean,
     scheduled_pickup: DateTime.now - (rand * 21),
-    height: x.sample, weight: "#{rand(6..40)} tons", 
+    height: x.sample, weight: "#{rand(6..40)} tons",
+    status: y.sample, 
     description: "#{rand(50..5000)} pallets of #{Faker::Construction.material}"
     )
 end
