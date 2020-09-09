@@ -20,4 +20,5 @@ class Driver < ApplicationRecord
         self.actual_arrival.strftime("%A, %H:%M %p")
         end
     end
+
 end

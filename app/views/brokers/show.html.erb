@@ -1,9 +1,10 @@
 <h1> Hello <%= @broker.name %> </h1>
-<%= button_to "Create new Shipment", new_delivery_path, method: :get %>
+
+<p><%= button_to "Create new Shipment", new_delivery_path, method: :get %></p>
 
 
 <% @broker.deliveries.each do |delivery| %>
 <%= link_to delivery.supplier.company, delivery_path(delivery) %> || <%= delivery.status %> <br>
 
 <% end %>
-<%= button_to "Back to Brokers Index", brokers_path, method: :get %>
+<p><%= button_to "Back to Brokers Index", brokers_path, method: :get %></p>
