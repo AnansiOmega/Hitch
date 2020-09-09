@@ -1,5 +1,7 @@
 class BrokersController < ApplicationController
-
+    before_action :authorized_broker
+    skip_before_action :authorized_broker, only: [:index,:new,:create]
+    
     def index
         @brokers = Broker.all
     end
@@ -14,8 +16,13 @@ class BrokersController < ApplicationController
 
     def create
         broker = Broker.create(broker_params)
-
-        redirect_to broker_path(broker)
+        if broker.valid?
+            session[:broker_id] = broker.id
+            redirect_to broker_path(broker)
+        else
+            flash[:errors] = broker.errors.full_messages
+            redirect_to new_broker_path
+        end
     end
 
 

@@ -10,6 +10,15 @@
   </head>
 
   <body>
+  <% if @logged_in_broker %>
+  <%= "Signed in as #{@logged_in_broker.name}"%>
+  <%= button_to "Logout", broker_logout_path, method: :delete %>
+  <% end %>
+
+  <% if flash[:not_logged] %>
+  <%= flash[:not_logged] %>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
