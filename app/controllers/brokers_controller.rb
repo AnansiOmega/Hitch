@@ -25,13 +25,9 @@ class BrokersController < ApplicationController
         end
     end
 
-
     private
-
 
     def broker_params
         params.require(:broker).permit(:name,:email, :password)
     end
-
-
 end
