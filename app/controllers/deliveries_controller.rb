@@ -8,16 +8,6 @@ class DeliveriesController < ApplicationController
         @delivery = Delivery.find(params[:id])
     end
 
-
-
-
-
-
-
-
-
-
-
     def new
         @delivery = Delivery.new
     end
