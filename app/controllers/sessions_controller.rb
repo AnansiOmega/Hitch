@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-    before_action :authorized_broker, :authorized_driver, :logged_in_driver
-    skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
-    skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
+    # before_action :authorized_broker, :authorized_driver, :logged_in_driver, :logged_in_broker
+    # skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
+    # skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
     
     def broker_logout
         session.delete(:broker_id)

@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   patch '/deliveries/:id/pickup', to: 'deliveries#pickup', as: 'pickup'
   patch '/deliveries/:id/dropoff', to: 'deliveries#dropoff', as: 'dropoff'
 
+  get '/deliveries/:id/transit', to: 'deliveries#transit', as: 'delivery_transit'
+  get '/deliveries/:id/dropped_off', to: 'deliveries#dropped_off', as: 'delivery_dropped_off'  
+
 
   root to: "sessions#home", as: 'home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -4,7 +4,7 @@
 
 
 <% @broker.deliveries.each do |delivery| %>
-<%= link_to delivery.supplier.company, delivery_path(delivery) %> || <%= delivery.status %> <br>
+<p><%= link_to delivery.supplier.company, delivery_path(delivery) %> || <%= delivery.status %><p>
 
 <% end %>
 <p><%= button_to "Back to Brokers Index", brokers_path, method: :get %></p>
