@@ -1,6 +1,8 @@
-
-<h1> Welcome </h1>
-<p><%= button_to "Brokers", brokers_path, method: :get %></p>
-<p><%= button_to "Drivers", drivers_path, method: :get %></p>
-    
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <%= link_to image_tag("/assets/driver-trans.png"), drivers_path, method: :get %>
+        <%= link_to image_tag("/assets/broker-trans.png"), brokers_path, method: :get %>
+    </body>
+</html>
 

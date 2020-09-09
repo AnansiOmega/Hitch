@@ -1,3 +1,32 @@
 body {
     background-color: #DFFBFF;
+    display: block;
+    margin-top: 170px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
+
+img {
+    width: 35%;
+    height: 35%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img:hover {
+    /* width: 36%;
+    height: 36%; */
+    transform: scale(1.05);
+    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
