@@ -21,7 +21,7 @@ class DriversController < ApplicationController
         if driver.valid?
             session[:driver_id] = driver.id
         redirect_to driver_path(driver)
-        else 
+        elsif 
             flash[:error] = driver.errors.full_messages
             redirect_to new_driver_path
         end
