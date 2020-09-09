@@ -4,15 +4,10 @@ body {
     text-align: center;
 }
 
-.img1 img:hover {
+.login img:hover {
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
-
-.img2 img:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
-  }
 
  .logo {
       width: 200px;
