@@ -4,8 +4,7 @@
 <p><%= button_to "Login", driver_login_path, method: :get %></p>
 
 
-<ul>
+
   <% @drivers.each do |driver| %>
-    <li><%= link_to driver.name, driver_path(driver) %></li>
+    <p><%= link_to driver.name, driver_path(driver) %></p>
   <% end %>
-</ul>
