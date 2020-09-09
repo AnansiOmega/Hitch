@@ -3,10 +3,11 @@
 <p><%= button_to "Sign up", new_driver_path, method: :get %></p>
 <p><%= button_to "Login", broker_login_path, method: :get %></p>
 
+<p><%= button_to "Login", driver_login_path, method: :get %></p>
 
 
-  
-
-
-
-
+<ul>
+  <% @drivers.each do |driver| %>
+    <li><%= link_to driver.name, driver_path(driver) %></li>
+  <% end %>
+</ul>

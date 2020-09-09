@@ -1,16 +1,16 @@
 <h1> Hello <%= @driver.name %> </h1>
 
-<h3>Supplier: <%= @driver.deliveries.last.supplier.company %></h3>
-<h4>Location: <%= @driver.deliveries.last.supplier.location %></h4>
+<h3>Supplier: <%= @driver.driver_deliveries %></h3>
+<h4>Location: <%# @driver.deliveries.last.supplier.location %></h4>
 
-<h3>Receiver: <%= @driver.deliveries.last.receiver.company %></h3>
-<h4>Location: <%= @driver.deliveries.last.receiver.location %></h4>
+<h3>Receiver: <%# @driver.deliveries.last.receiver.company %></h3>
+<h4>Location: <%# @driver.deliveries.last.receiver.location %></h4>
 
-<h3>Hazardous: <%= @driver.deliveries.last.hazardous %></h3>
-<h3>Pickup Time: <%= @driver.deliveries.last.pickup %></h3>
-<h3>Height: <%= @driver.deliveries.last.height %></h3>
-<h3>Weight: <%= @driver.deliveries.last.weight %></h3>
-<h3>Description: <%= @driver.deliveries.last.description %></h3>
+<h3>Hazardous: <%# @driver.deliveries.last.hazardous %></h3>
+<h3>Pickup Time: <%# @driver.deliveries.last.pickup_time %></h3>
+<h3>Height: <%# @driver.deliveries.last.height %></h3>
+<h3>Weight: <%# @driver.deliveries.last.weight %></h3>
+<h3>Description: <%# @driver.deliveries.last.description %></h3>
 
 <p><%= button_to "Start Delivery" %></p>
 <p><%= button_to "Finish Delivery" %></p>

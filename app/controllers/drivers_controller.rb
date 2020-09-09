@@ -1,8 +1,8 @@
 class DriversController < ApplicationController
 
-    before_action :authorized_broker
-    skip_before_action :authorized_broker
-
+    before_action :authorized_broker, :authorized_driver, :logged_in_driver
+    skip_before_action :authorized_broker, only: [:index, :new, :create]
+    skip_before_action :authorized_driver, only: [:index, :new, :create]
 
     def index
         @drivers = Driver.all
@@ -18,8 +18,13 @@ class DriversController < ApplicationController
 
     def create
         driver = Driver.create(driver_params)
-
+        if driver.valid?
+            session[:driver_id] = driver.id
         redirect_to driver_path(driver)
+        else 
+            flash[:error] = driver.errors.full_messages
+            redirect_to new_driver_path
+        end
     end
 
     private

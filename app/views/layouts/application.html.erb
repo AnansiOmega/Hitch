@@ -19,6 +19,14 @@
     <%= flash[:not_logged] %>
     <% end %>
 
+ <% if @logged_in_driver %>
+  <%= button_to "Logout", driver_logout_path, method: :delete %>
+  <% end %>
+
+
+
     <%= yield %>
   </body>
+
+  
 </html>

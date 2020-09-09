@@ -1,6 +1,7 @@
 class BrokersController < ApplicationController
-    before_action :authorized_broker
+    before_action :authorized_broker, :authorized_driver, :logged_in_driver
     skip_before_action :authorized_broker, only: [:index,:new,:create]
+    skip_before_action :authorized_driver, only: [:index,:new,:create]
     
     def index
         @brokers = Broker.all
