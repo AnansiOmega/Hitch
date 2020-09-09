@@ -1,8 +1,7 @@
 <h1> Please specify What this delivery consists of </h1>
 <%= form_for @delivery do |f| %>
-<%= f.label :broker %>
-<%= f.collection_select :broker_id, Broker.all, :id, :name %>
-<%# f.hidden_field :broker_id, :value => session[:broker_id] %>
+
+<%= f.hidden_field :broker_id, :value => session[:broker_id] %>
 
 <%= f.label :supplier %>
 <%= f.collection_select :supplier_id, Supplier.all, :id, :company %>
