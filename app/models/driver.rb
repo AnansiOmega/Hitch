@@ -6,12 +6,17 @@ class Driver < ApplicationRecord
     has_many :suppliers, through: :deliveries
     
 
-    def driver_deliveries
-            if self.deliveries == []
-                self.deliveries
-            end
-    end
+    # def driver_deliveries
+    #         if self.deliveries == []
+    #             self.deliveries
+    #         end
+    # end
 
+    def new_delivery
+        self.deliveries.filter do |delivery|
+            delivery.status == "Awaiting Pickup"
+        end
+    end
 
     def actual_arrival_display
         if self.actual_arrival == nil
@@ -20,5 +25,4 @@ class Driver < ApplicationRecord
         self.actual_arrival.strftime("%A, %H:%M %p")
         end
     end
-
 end
