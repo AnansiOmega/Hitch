@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/brokers/transit', to: 'brokers#transit', as: 'brokers_transit'
+  get '/brokers/dropped_off', to: 'brokers#dropped_off', as: 'brokers_dropped_off' 
   resources :brokers
   resources :deliveries
   resources :suppliers
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/deliveries/:id/transit', to: 'deliveries#transit', as: 'delivery_transit'
   get '/deliveries/:id/dropped_off', to: 'deliveries#dropped_off', as: 'delivery_dropped_off'  
+
+
 
 
   root to: "sessions#home", as: 'home'

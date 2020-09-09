@@ -1,6 +1,6 @@
 class BrokersController < ApplicationController
-    # before_action :authorized_broker, :logged_in_broker
-    # skip_before_action :authorized_broker
+    before_action :authorized_broker, :logged_in_broker
+    skip_before_action :authorized_broker, only: [:new,:create,:index,:show]
    
     
     def index
@@ -24,6 +24,14 @@ class BrokersController < ApplicationController
             flash[:errors] = broker.errors.full_messages
             redirect_to new_broker_path
         end
+    end
+
+    def transit
+        @broker = Broker.find_by(id: session[:broker_id])
+    end
+
+    def dropped_off
+        @broker = Broker.find_by(id: session[:broker_id])
     end
 
     private
