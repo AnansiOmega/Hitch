@@ -22,6 +22,18 @@ class Driver < ApplicationRecord
         end
     end
 
+    def transit_delivery
+        self.deliveries.filter do |delivery|
+            delivery.status == "In Transit"
+        end
+    end
+
+    def delivered_delivery
+        self.deliveries.filter do |delivery|
+            delivery.status == "Delivery Completed"
+        end
+    end
+
     def actual_arrival_display
         if self.actual_arrival == nil
         self.actual_arrival

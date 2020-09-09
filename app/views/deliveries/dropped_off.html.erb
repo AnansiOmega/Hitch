@@ -1,0 +1,19 @@
+<h1>hi</h1>
+
+
+<% @driver.delivered_delivery.each do |delivery|%>
+
+<h3>Supplier: <%= delivery.supplier.company %></h3>
+<h4>Location: <%= delivery.supplier.location %></h4>
+
+<h3>Receiver: <%= delivery.receiver.company %></h3>
+<h4>Location: <%= delivery.receiver.location %></h4>
+
+<h3>Hazardous: <%= delivery.hazardous %></h3>
+<h3>Pickup Time: <%= delivery.actual_arrival_display %></h3>
+<h3>Height: <%= delivery.height %></h3>
+<h3>Weight: <%= delivery.weight %></h3>
+<h3>Description: <%= delivery.description %></h3>
+<h3>Status: <%= delivery.status %>
+
+<% end %>

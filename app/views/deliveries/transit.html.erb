@@ -1,6 +1,7 @@
-<h1> Hello <%= @driver.name %> </h1>
+<h1>hi</h1>
 
-<% @driver.new_delivery.each do |delivery|%>
+
+<% @driver.transit_delivery.each do |delivery|%>
 
 <h3>Supplier: <%= delivery.supplier.company %></h3>
 <h4>Location: <%= delivery.supplier.location %></h4>
@@ -9,17 +10,14 @@
 <h4>Location: <%= delivery.receiver.location %></h4>
 
 <h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.scheduled_pickup %></h3>
+<h3>Pickup Time: <%= delivery.actual_arrival_display %></h3>
 <h3>Height: <%= delivery.height %></h3>
 <h3>Weight: <%= delivery.weight %></h3>
 <h3>Description: <%= delivery.description %></h3>
 <h3> Status: <%= delivery.status %>
 
 
-<p><%= button_to "Start Delivery", pickup_path(delivery), method: :patch %></p>
+
 <p><%= button_to "Finish Delivery", dropoff_path(delivery), method: :patch %></p>
 
 <% end %>
-
-
-<p><%= button_to "Back to Drivers Index", drivers_path, method: :get %></p>
