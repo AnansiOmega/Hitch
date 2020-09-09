@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BrokerApp</title>
+    <title>Hitch</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,8 +22,6 @@
  <% if @logged_in_driver %>
   <%= button_to "Logout", driver_logout_path, method: :delete %>
   <% end %>
-
-
 
     <%= yield %>
   </body>
