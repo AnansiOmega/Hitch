@@ -7,13 +7,12 @@
 <h4>Location: <%= @driver.deliveries.last.receiver.location %></h4>
 
 <h3>Hazardous: <%= @driver.deliveries.last.hazardous %></h3>
-<h3>Pickup Time: <%= @driver.deliveries.last.pickup_time %></h3>
+<h3>Pickup Time: <%= @driver.deliveries.last.pickup %></h3>
 <h3>Height: <%= @driver.deliveries.last.height %></h3>
 <h3>Weight: <%= @driver.deliveries.last.weight %></h3>
 <h3>Description: <%= @driver.deliveries.last.description %></h3>
 
 <p><%= button_to "Start Delivery" %></p>
 <p><%= button_to "Finish Delivery" %></p>
-
 
 <p><%= button_to "Back to Drivers Index", drivers_path, method: :get %></p>
