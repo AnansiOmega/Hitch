@@ -2,6 +2,9 @@
 
 <p><%= button_to "Create A New Driver", new_driver_path, method: :get %></p>
 
+<p><%= button_to "Login", driver_login_path, method: :get %></p>
+
+
 <ul>
   <% @drivers.each do |driver| %>
     <li><%= link_to driver.name, driver_path(driver) %></li>

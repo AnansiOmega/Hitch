@@ -1,5 +1,5 @@
 class DeliveriesController < ApplicationController
-    before_action :authorized_broker
+    before_action :authorized_broker, :authorized_driver
     before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
 
     def index
