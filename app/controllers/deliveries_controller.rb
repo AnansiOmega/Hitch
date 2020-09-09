@@ -1,7 +1,7 @@
 class DeliveriesController < ApplicationController
-    before_action :authorized_broker, :authorized_driver
-    before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
-    skip_before_action :authorized_driver, except: [:pickup, :dropoff]
+    # before_action :authorized_broker, :authorized_driver
+    # before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
+    # skip_before_action :authorized_driver, except: [:pickup, :dropoff]
    
     def index
         @deliveries = Delivery.all
@@ -26,12 +26,12 @@ class DeliveriesController < ApplicationController
 
     def pickup
         @delivery.pickup
-        redirect_to delivery_path(@delivery)
+        redirect_to delivery_transit_path(@delivery)
     end
 
     def dropoff
         @delivery.dropoff
-        redirect_to delivery_path(@delivery)
+        redirect_to delivery_dropped_off_path(@delivery)
     end
 
     private

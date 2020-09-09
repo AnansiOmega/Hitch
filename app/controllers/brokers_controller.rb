@@ -1,6 +1,6 @@
 class BrokersController < ApplicationController
-    before_action :authorized_broker, :logged_in_broker
-    skip_before_action :authorized_broker
+    # before_action :authorized_broker, :logged_in_broker
+    # skip_before_action :authorized_broker
    
     
     def index
