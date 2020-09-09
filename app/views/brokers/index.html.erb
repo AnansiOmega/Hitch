@@ -4,3 +4,8 @@
 <p><%= button_to "Login", broker_login_path, method: :get %></p>
 
 
+<ul>
+  <% @brokers.each do |broker| %>
+    <li><%= link_to broker.name, broker_path(broker) %></li>
+  <% end %>
+</ul>

@@ -4,12 +4,16 @@ class Driver < ApplicationRecord
     has_many :brokers, through: :deliveries
     has_many :receivers, through: :deliveries
     has_many :suppliers, through: :deliveries
+    validates :name, :email, :password, presence: true
+    validates :name, :email, :password, uniqueness: true
+
+   
     
 
     def driver_deliveries
-            if self.deliveries == []
-                self.deliveries
-            end
+        if self.deliveries == []
+            self.deliveries
+        end
     end
 
     def new_delivery
