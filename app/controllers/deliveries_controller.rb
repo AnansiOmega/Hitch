@@ -1,4 +1,5 @@
 class DeliveriesController < ApplicationController
+    before_action :authorized_broker
 
     def index
         @deliveries = Delivery.all
