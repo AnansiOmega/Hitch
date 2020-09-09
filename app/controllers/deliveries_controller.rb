@@ -8,6 +8,7 @@ class DeliveriesController < ApplicationController
     end
 
     def show
+
     end
 
     def new
@@ -25,13 +26,25 @@ class DeliveriesController < ApplicationController
     end
 
     def pickup
+        @delivery = Delivery.find(params[:id])
         @delivery.pickup
         redirect_to delivery_transit_path(@delivery)
     end
 
     def dropoff
+        @delivery = Delivery.find(params[:id])
         @delivery.dropoff
         redirect_to delivery_dropped_off_path(@delivery)
+    end
+
+    def transit
+        delivery = Delivery.find(params[:id])
+        @driver = delivery.driver
+    end
+
+    def dropped_off
+        delivery = Delivery.find(params[:id])
+        @driver = delivery.driver
     end
 
     private
