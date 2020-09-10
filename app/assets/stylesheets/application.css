@@ -60,6 +60,34 @@ body > form > input[type=submit] {
 }
 
 body > form > input[type=submit]:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+ }
+
+ .listing {
+   background-color: #ffffff;
+   border: solid #000000;
+   border-width: 5px 0px 3px 0px;
+   box-shadow: 2px 6px 13px 0px rgba(0, 0, 0, 0.48);
+   margin-top: 20px;
+ }
+
+ .listinglink {
+   text-decoration: none;
+ }
+
+ .item {
+   background-color: #DFFBFF;
+   border: 2px solid #000000;
+   padding: 10px 10px;
+   margin: 20px;
+   /* border-width: 2px 0px 2px 0px; */
+ }
+
+ .item:hover {
+   transform: scale(1.02);
+   transition: all 0.05s ease-in-out;
+ }
    transform: scale(1.05);
    transition: all 0.2s ease-in-out;
 }
