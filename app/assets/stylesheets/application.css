@@ -47,6 +47,7 @@ body > div.logout > form > input[type=submit]:nth-child(2){
    margin-bottom: 10px;
 }
 
+
 @font-face {
    font-family: 'Montserrat-Light';
    src: url('app/assets/fonts/Montserrat-Light.otf') format("truetype");
@@ -135,6 +136,4 @@ body > form > input[type=submit]:hover {
    transform: scale(1.02);
    transition: all 0.05s ease-in-out;
  }
-   transform: scale(1.05);
-   transition: all 0.2s ease-in-out;
-}
+  

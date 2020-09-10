@@ -16,8 +16,8 @@
 <h4>Location: <%= delivery.receiver.location %></h4>
 
 <h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
-<h3>Height: <%= delivery.height %></h3>
+<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M") %></h3>
+<h3>Height: <%= delivery.height %> ft</h3>
 <h3>Weight: <%= delivery.weight %></h3>
 <h3>Description: <%= delivery.description %></h3>
 <h3> Status: <%= delivery.status %></h3>
