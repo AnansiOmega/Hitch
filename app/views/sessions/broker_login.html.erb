@@ -2,7 +2,7 @@
 
 <h3> <% if flash[:error] %>
 <%= flash[:error] %>
-<% end %>
+<% end %> </h3>
 
 <%= form_for :broker, url:  broker_logging_path do |f| %>
 <p><%= f.label :name %></p>
@@ -11,5 +11,5 @@
 <p><%= f.label :password %></p>
 <%= f.text_field :password %><br><br>
 
-<%= f.submit value: "Login" %>
+<%= f.submit value: "LOGIN" %>
 <% end %>

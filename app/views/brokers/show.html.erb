@@ -5,7 +5,7 @@
 <p><%= button_to "View your previous deliveries", brokers_dropped_off_path, method: :get %></p>
 
 <h4> Jobs For The Day: </h4>
-<% @broker.new_delivery.each do |delivery| %>
+<% @broker.deliveries.each do |delivery| %>
 <p>Company: <%= link_to delivery.supplier.company, delivery_path(delivery) %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %><p>
 
 <% end %>

@@ -1,6 +1,8 @@
 
-<img class="logo" src="/assets/logo.png" alt="logo"><br>
-
+    <div class="logo">
+        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+    </div>
+        
     <div class="login">
         <%= link_to image_tag("/assets/login.png"), broker_login_path, method: :get %><br>
         <%= link_to image_tag("/assets/register.png"), new_broker_path, method: :get %>

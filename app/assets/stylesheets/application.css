@@ -2,10 +2,11 @@
 body {
     background-color: #DFFBFF;
     text-align: center;
+    font-family: 'Montserrat-Light';
 }
 
 .login img {
-   width: 65%;
+   /* width: 55%; */
    height: auto;
 }
 
@@ -14,9 +15,25 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
- .logo {
-      width: 200px;
+ .logo img {
+   width: 200px;
   }
+
+  .logo img:hover {
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
+ }
+
+ .nav {
+   text-align: left;
+   padding: 10px 10px;
+ }
+
+ .nav > .logo img {
+    width: 175px;
+ }
+
+ /* body > div > div > a > img */
   
  /* button {
     width: 10%;
@@ -32,3 +49,24 @@ body {
     transition: all 0.2s ease-in-out;
  } */
 
+ @font-face {
+   font-family: 'Montserrat-Light';
+   src: url('app/assets/fonts/Montserrat-Light.otf') format("truetype");
+}
+
+body > form > input[type=submit] {
+   font-family: 'Montserrat-Light';
+   background-color: #ffffff;
+   border: 2px solid #000000;
+   color: #000000;
+   padding: 15px 15px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 20px;
+}
+
+body > form > input[type=submit]:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+ }

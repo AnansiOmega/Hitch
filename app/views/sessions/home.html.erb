@@ -2,7 +2,9 @@
 <html lang="en">
     <body>
      
-        <img class="logo" src="/assets/logo.png" alt="logo">
+        <div class="logo">
+        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+        </div>
 
         <div class="login">
         <%= link_to image_tag("/assets/driver.png"), drivers_path, method: :get %><br>
