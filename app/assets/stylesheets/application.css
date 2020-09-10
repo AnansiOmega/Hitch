@@ -10,6 +10,7 @@ body {
 
 .logo img {
    width: 200px;
+   padding-bottom: 40px;
 }
 
 .logo img:hover {
@@ -18,7 +19,10 @@ body {
 }
 
 .login img {
+   display: inline-block;
+   max-width: 400px;
    height: auto;
+   margin: 0px 0px 10px 0px;
 }
 
 .login img:hover {
