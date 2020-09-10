@@ -9,9 +9,36 @@
 <div class="listing">
     <h4> ↓ Current Deliveries ↓ </h4>
     <% @broker.deliveries.each do |delivery| %>
+        <div class="status">
+            <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% end%>
+            </div>
         <a class="listinglink" href="<%= delivery_path(delivery) %>">
             <div class="item">
-            Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> || Company: <%= delivery.supplier.company %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %>
+                <div class="subitem">
+                    <b>Driver:</b> <%= delivery.driver.name %> ﹒ <b>Supplier:</b> <%= delivery.supplier.company %> ﹒ <b>Location:</b> <%= delivery.supplier.location %> 
+                    <br><b>Receiver:</b> <%= delivery.receiver.company %> ﹒ <b>Destination:</b> <%= delivery.receiver.location %>
+                </div>
             </div> 
         </a>
     <% end %>

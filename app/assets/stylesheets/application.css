@@ -76,11 +76,45 @@ body > form > input[type=submit]:hover {
    text-decoration: none;
  }
 
+ .status {
+   text-align: right;
+ }
+
+ .id {
+   color: #000000;
+   float: left;
+ }
+
+ .redstatus {
+   border: solid #000000;
+   border-width: 2px 2px 0px 2px;
+   padding: 10px 10px;
+   margin: 20px 20px 0px 20px;
+   color: #bd0000;
+}
+
+.bluestatus {
+   border: solid #000000;
+   border-width: 2px 2px 0px 2px;
+   padding: 10px 10px;
+   margin: 20px 20px 0px 20px;
+   color: #0006a5;
+}
+
+.greenstatus {
+   border: solid #000000;
+   border-width: 2px 2px 0px 2px;
+   padding: 10px 10px;
+   margin: 20px 20px 0px 20px;
+   color: #18b300;
+}
+
  .item {
    background-color: #DFFBFF;
-   border: 2px solid #000000;
-   padding: 10px 10px;
-   margin: 20px;
+   border: solid #000000;
+   border-width: 2px 2px 2px 2px;
+   padding: 10px 10px 10px 10px;
+   margin: 0px 20px 20px 20px;
    /* border-width: 2px 0px 2px 0px; */
  }
 
