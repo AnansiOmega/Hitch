@@ -1,5 +1,12 @@
 <h1> Please Fill out the information below </h1>
 
+
+<% if  flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%= error %><br>
+<% end %>
+<% end %>
+
 <%= form_for @broker do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>

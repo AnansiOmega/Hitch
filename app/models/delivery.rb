@@ -2,7 +2,27 @@ class Delivery < ApplicationRecord
     belongs_to :broker
     belongs_to :supplier
     belongs_to :driver
-    belongs_to :receiver 
+    belongs_to :receiver
+    validate :end_with_weight?
+    validate :this_year?
+    validates :description, presence: true
+
+
+    def end_with_weight?
+        if self.weight.last(3).first == "l"
+            true
+        elsif self.weight.last(4).first == "t"
+            true
+        else
+            errors.add(:weight, "is incorrect please specify weight in lbs or tons")
+        end
+    end
+
+    def this_year?
+        if self.scheduled_pickup < Time.now
+        errors.add(:scheduled_pickup, "cannot be in the past")
+        end
+    end
 
 
     def pickup
