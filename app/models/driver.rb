@@ -8,12 +8,6 @@ class Driver < ApplicationRecord
     validates :name, :email, uniqueness: true
     validate :real_email?
 
-    # def driver_deliveries
-    #     if self.deliveries == []
-    #         self.deliveries
-    #     end
-    # end
-
     def real_email?
        if self.email.include?("@") && self.email.last(4).first == "."
         true
