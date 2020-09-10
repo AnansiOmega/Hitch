@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     before_action :authorized_broker, :authorized_driver, :logged_in_driver, :logged_in_broker
-    skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
-    skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout]
+    skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert]
+    skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert]
     
     def broker_logout
         session.delete(:broker_id)
@@ -39,6 +39,12 @@ class SessionsController < ApplicationController
             flash[:error] = "Username or Password is incorrect"
             redirect_to driver_login_path
         end
+    end
+
+    def alert
+        driver = Driver.find_by(id: session[:driver_id])
+        session[:alert] += ["#{driver.name} has requested a delivery"]
+        redirect_to driver_path(driver)
     end
 
 end

@@ -30,6 +30,10 @@
 
 <% else %>
 <h3> There are no jobs assigned to you </h3>
+<%= button_to "Request a Delivery", broker_alert_path, method: :post %>
+<% end %>
+<% if session[:alert] && session[:alert].include?("#{@driver.name} has requested a delivery") %>
+<h5><%= "A broker has been notified"%></h5>
 <% end %>
 <% if @driver.deliveries.last %>
 <p><%= button_to "View Jobs In Progress", delivery_transit_path(@driver.deliveries.last), method: :get %></p>

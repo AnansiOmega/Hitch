@@ -8,6 +8,7 @@ class DriversController < ApplicationController
     
     def show
         @driver = Driver.find(params[:id])
+        # byebug
     end
     
     def new
