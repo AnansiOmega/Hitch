@@ -1,4 +1,9 @@
-<h1> Please specify What this delivery consists of </h1>
+<div class="logo">
+        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+        </div>
+
+
+<%# <h1> Please specify What this delivery consists of </h1> %>
 
 <% x = ["8'6", "9'6"] %>
 
@@ -24,7 +29,7 @@
 <%= f.label :height %>
 <%= f.select :height, x.map { |value| [value] } %>
 
-<p><%= f.label :weight %></p>
+<p><%= f.label :weight %> In Lbs</p>
 <%= f.text_field :weight %>
 
 <p><%= f.label :hazardous %></p>
@@ -36,7 +41,7 @@
 <%= f.hidden_field :status, :value => "Awaiting Pickup" %>
 
 <p><%= f.label :description %></p>
-<%= f.text_area :description, value: "Please Specify the number of pallets, and the product" %><br>
+<%= f.text_area :description, value: "Please Specify the number of pallets, and the product", cols: "30", rows: "10"%><br>
 
 
 <%= f.submit %>

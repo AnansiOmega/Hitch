@@ -24,14 +24,17 @@ body {
    transition: all 0.2s ease-in-out;
  }
 
- .nav {
+
+
+ /* .nav {
    text-align: left;
    padding: 10px 10px;
  }
 
  .nav > .logo img {
     width: 175px;
- }
+ } */
+
 
  /* body > div > div > a > img */
   
