@@ -4,6 +4,11 @@ body {
     text-align: center;
 }
 
+.login img {
+   width: 65%;
+   height: auto;
+}
+
 .login img:hover {
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
@@ -13,17 +18,17 @@ body {
       width: 200px;
   }
   
- button {
+ /* button {
     width: 10%;
     background-color: #FFFFFF;
     padding-top: 1%;
     padding-bottom: 1%;
     border-color: black;
     border-width: 3px;
- }
+ } */
 
- button:hover {
+ /* button:hover {
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
- }
+ } */
 
