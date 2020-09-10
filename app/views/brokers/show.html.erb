@@ -4,7 +4,7 @@
 
 <p><%= button_to "Create new Shipment", new_delivery_path, method: :get %></p>
 <p><%= button_to "View your Trucks in Transit",  brokers_transit_path, method: :get %></p>
-<p><%= button_to "View your previous deliveries", brokers_dropped_off_path, method: :get %></p>
+<p><%= button_to "View previous deliveries", brokers_dropped_off_path, method: :get %></p>
 
 <h4> Jobs For The Day: </h4>
 <% @broker.deliveries.each do |delivery| %>
