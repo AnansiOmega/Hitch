@@ -1,8 +1,10 @@
-
-
+<div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
+  </div>
+    
 
 <h1> Completed Deliveries </h1>
 <%= form_tag url: supplier_path(:id), :method => :post, :controller => :brokers, :action => :drop_off  do %>
- <%= select_tag :id, options_from_collection_for_select(@suppliers, :id, "company"), {prompt: 'Select Supplier'} %>
+ <p><%= select_tag :id, options_from_collection_for_select(@suppliers, :id, "company"), {prompt: 'Select Supplier'} %></p>
  <%= submit_tag %>
   <% end %>

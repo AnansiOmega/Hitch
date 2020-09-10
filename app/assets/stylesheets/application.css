@@ -1,79 +1,48 @@
 
-
-
-
-/* #menubar {
-   width: 1000px;
-   margin: 0 auto;
-   height: 40px;
-   background-color: white;
-} */
-
-
 body {
    margin: 0;
    padding: 0;
    background-color: #DFFBFF;
-   text-align: center;
    font-family: 'Montserrat-Light';
+   text-align: center;
 }
 
-.logout {
-   float: right;
+
+.logo img {
+   width: 200px;
 }
 
-.logo {
-   clear: both;
+.logo img:hover {
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
 }
 
 .login img {
-   /* width: 55%; */
    height: auto;
 }
 
 .login img:hover {
-  transform: scale(1.05);
-  transition: all 0.2s ease-in-out;
-}
-
- .logo img {
-   width: 200px;
-  }
-
-  .logo img:hover {
    transform: scale(1.05);
    transition: all 0.2s ease-in-out;
- }
+}
 
+/* body > div > div > a > img */
 
+/* button {
+width: 10%;
+background-color: #FFFFFF;
+padding-top: 1%;
+padding-bottom: 1%;
+border-color: black;
+border-width: 3px;
+} */
 
- /* .nav {
-   text-align: left;
-   padding: 10px 10px;
- }
+/* button:hover {
+transform: scale(1.05);
+transition: all 0.2s ease-in-out;
+} */
 
- .nav > .logo img {
-    width: 175px;
- } */
-
-
- /* body > div > div > a > img */
-  
- /* button {
-    width: 10%;
-    background-color: #FFFFFF;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border-color: black;
-    border-width: 3px;
- } */
-
- /* button:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
- } */
-
- @font-face {
+@font-face {
    font-family: 'Montserrat-Light';
    src: url('app/assets/fonts/Montserrat-Light.otf') format("truetype");
 }
@@ -91,6 +60,6 @@ body > form > input[type=submit] {
 }
 
 body > form > input[type=submit]:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
- }
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
+}

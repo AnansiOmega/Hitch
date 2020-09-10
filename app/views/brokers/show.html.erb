@@ -1,5 +1,8 @@
 
-
+<div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), brokers_path %><br>
+  </div>
+    
 <h1> Hello <%= @broker.name %> </h1>
 
 <p><%= button_to "Create new Shipment", new_delivery_path, method: :get %></p>
