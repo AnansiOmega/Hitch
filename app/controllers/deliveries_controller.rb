@@ -28,7 +28,7 @@ class DeliveriesController < ApplicationController
 
     def destroy 
         @delivery.destroy
-        redirect_back fallback_location: brokers_path
+        redirect_to broker_path(session[:broker_id])
     end
 
     def pickup

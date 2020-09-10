@@ -19,10 +19,10 @@
 
 
 
-
+<% if !@delivery.status == "Delivery Completed" %>
 <p><%= button_to "Pickup", pickup_path(@delivery), method: :patch %></p>
 <p><%= button_to "Dropoff", dropoff_path(@delivery), method: :patch %></p>
-
+<% end %>
 <h3>Actual Pickup: <%= @delivery.actual_arrival_display %></h3>
 
 

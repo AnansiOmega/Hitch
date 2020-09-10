@@ -8,7 +8,7 @@
 
 <h4> Jobs For The Day: </h4>
 <% @broker.deliveries.each do |delivery| %>
-<p>Company: <%= link_to delivery.supplier.company, delivery_path(delivery) %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %><p>
+<p>Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> || Company: <%= delivery.supplier.company %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %><p>
 
 <% end %>
 
