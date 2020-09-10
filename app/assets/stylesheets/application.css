@@ -7,10 +7,23 @@ body {
    text-align: center;
 }
 
+body > div.logout > form > input[type=submit]:nth-child(2){   
+   font-family: 'Montserrat-Light';
+   background-color: #ffffff;
+   border: 2px solid #000000;
+   color: #000000;
+   /* padding: 0px 15px; */
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 15px;
+   margin: 20px 0px 0px 0px;
+}
 
 .logo img {
    width: 200px;
-   padding-bottom: 40px;
+   /* padding-bottom: 20px; */
+   margin: 20px 0px 20px 0px;
 }
 
 .logo img:hover {
@@ -22,7 +35,7 @@ body {
    display: inline-block;
    max-width: 400px;
    height: auto;
-   margin: 0px 0px 10px 0px;
+   margin: 0px 0px 0px 0px;
 }
 
 .login img:hover {
@@ -33,22 +46,6 @@ body {
 .logout {
    margin-bottom: 10px;
 }
-
-/* body > div > div > a > img */
-
-/* button {
-width: 10%;
-background-color: #FFFFFF;
-padding-top: 1%;
-padding-bottom: 1%;
-border-color: black;
-border-width: 3px;
-} */
-
-/* button:hover {
-transform: scale(1.05);
-transition: all 0.2s ease-in-out;
-} */
 
 @font-face {
    font-family: 'Montserrat-Light';
@@ -65,6 +62,7 @@ body > form > input[type=submit] {
    text-decoration: none;
    display: inline-block;
    font-size: 20px;
+   margin: 10px 0px 0px 0px;
 }
 
 body > form > input[type=submit]:hover {
