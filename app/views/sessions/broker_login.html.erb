@@ -1,14 +1,15 @@
-<h1> Hi </h1>
+<h1> Broker Login </h1>
 
 <h3> <% if flash[:error] %>
 <%= flash[:error] %>
 <% end %>
 
 <%= form_for :broker, url:  broker_logging_path do |f| %>
-<%= f.label :name %>
+<p><%= f.label :name %></p>
 <%= f.text_field :name %>
 
-<%= f.label :password %>
-<%= f.text_field :password %>
+<p><%= f.label :password %></p>
+<%= f.text_field :password %><br><br>
+
 <%= f.submit value: "Login" %>
 <% end %>

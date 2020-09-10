@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <body>
-    <div class="img1">
-        <%= link_to image_tag("/assets/driver-trans.png"), drivers_path, method: :get %>
-        </div>
-        <div class="img2">
+     
+        <img class="logo" src="/assets/logo.png" alt="logo">
+
+        <div class="login">
+        <%= link_to image_tag("/assets/driver-trans.png"), drivers_path, method: :get %><br>
         <%= link_to image_tag("/assets/broker-trans.png"), brokers_path, method: :get %>
         </div>
+
     </body>
 </html>
 

@@ -1,4 +1,4 @@
-<h1> Please Fill out the information below </h1>
+<h1> Broker Signup </h1>
 
 
 <% if  flash[:errors] %>
@@ -8,14 +8,15 @@
 <% end %>
 
 <%= form_for @broker do |f| %>
-<%= f.label :name %>
+<p><%= f.label :name %></p>
 <%= f.text_field :name %>
 
-<%= f.label :email %>
+<p><%= f.label :email %></p>
 <%= f.text_field :email %>
 
-<%= f.label :password %>
-<%= f.text_field :password %>
-<%= f.submit %>
+<p><%= f.label :password %></p>
+<%= f.text_field :password %><br><br>
+
+<%= f.submit value: "Signup" %>
 
 <% end %>
