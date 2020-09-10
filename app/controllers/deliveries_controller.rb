@@ -19,7 +19,12 @@ class DeliveriesController < ApplicationController
 
     def create
         delivery = Delivery.create(delivery_params)
+        if delivery.valid?
         redirect_to broker_path(delivery.broker_id)
+        else
+            flash[:errors] = delivery.errors.full_messages
+            redirect_to new_delivery_path
+        end
     end
 
     def destroy 

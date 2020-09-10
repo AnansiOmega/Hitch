@@ -1,5 +1,13 @@
 <h1> Please specify What this delivery consists of </h1>
 
+<% x = ["8'6", "9'6"] %>
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%= error %><br>
+<% end %>
+<% end %>
+
 <%= form_for @delivery do |f| %>
 
 <%= f.hidden_field :broker_id, :value => session[:broker_id] %>
@@ -13,8 +21,8 @@
 <p><%= f.label :driver %></p>
 <%= f.collection_select :driver_id, Driver.all, :id, :name %>
 
-<p><%= f.label :height %></p>
-<%= f.text_field :height %>
+<%= f.label :height %>
+<%= f.select :height, x.map { |value| [value] } %>
 
 <p><%= f.label :weight %></p>
 <%= f.text_field :weight %>
