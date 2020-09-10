@@ -1,18 +1,19 @@
-<div class="logo">
-        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
-        </div>
+    <div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+    </div>
+        
+<p><%= button_to "NEW DELIVERY", new_delivery_path, method: :get %></p>
+<p><%= button_to "TRUCKS IN TRANSIT",  brokers_transit_path, method: :get %></p>
+<p><%= button_to "PREVIOUS DELIVERIES", brokers_dropped_off_path, method: :get %></p>
 
-
-
-<h1> Hello <%= @broker.name %> </h1>
-
-<p><%= button_to "Create new Shipment", new_delivery_path, method: :get %></p>
-<p><%= button_to "View your Trucks in Transit",  brokers_transit_path, method: :get %></p>
-<p><%= button_to "View your previous deliveries", brokers_dropped_off_path, method: :get %></p>
-
-<h4> Jobs For The Day: </h4>
-<% @broker.deliveries.each do |delivery| %>
-<p>Company: <%= link_to delivery.supplier.company, delivery_path(delivery) %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %><p>
-
-<% end %>
+<div class="listing">
+    <h4> ↓ Current Deliveries ↓ </h4>
+    <% @broker.deliveries.each do |delivery| %>
+        <a class="listinglink" href="<%= delivery_path(delivery) %>">
+            <div class="item">
+            Company: <%= delivery.supplier.company %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %>
+            </div> 
+        </a>
+    <% end %>
+</div>
 

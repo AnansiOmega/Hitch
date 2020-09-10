@@ -9,8 +9,9 @@
   </head>
 
   <body>
-    <% if @logged_in_broker %>
-    <%= "Signed in as #{@logged_in_broker.name}"%>
+
+<% if @logged_in_broker %>
+    <%= "Logged In (#{@logged_in_broker.name})"%>
     <%= button_to "LOGOUT", broker_logout_path, method: :delete %>
     <% end %> 
 
@@ -19,9 +20,11 @@
     <% end %>
 
  <% if @logged_in_driver %>
-  <%= button_to "LOGOUT", driver_logout_path, method: :delete, form_class: "logout" %>
-  <% end %>
+     <%= "Logged In (#{@logged_in_driver.name})"%>
+     <%= button_to "LOGOUT", driver_logout_path, method: :delete, form_class: "logout" %>
+     <% end %>
 
     <%= yield %>
+
   </body>
 </html>
