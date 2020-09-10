@@ -1,8 +1,29 @@
 
+
+
+
+/* #menubar {
+   width: 1000px;
+   margin: 0 auto;
+   height: 40px;
+   background-color: white;
+} */
+
+
 body {
-    background-color: #DFFBFF;
-    text-align: center;
-    font-family: 'Montserrat-Light';
+   margin: 0;
+   padding: 0;
+   background-color: #DFFBFF;
+   text-align: center;
+   font-family: 'Montserrat-Light';
+}
+
+.logout {
+   float: right;
+}
+
+.logo {
+   clear: both;
 }
 
 .login img {
