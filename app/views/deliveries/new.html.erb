@@ -35,7 +35,7 @@
 <%= f.check_box :hazardous %>
 
 <p><%= f.label :scheduled_pickup %></p>
-<%= f.datetime_select :scheduled_pickup %>
+<%= f.datetime_select :scheduled_pickup, ampm: true %>
 
 <%= f.hidden_field :status, :value => "Awaiting Pickup" %>
 

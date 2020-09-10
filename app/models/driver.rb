@@ -6,11 +6,20 @@ class Driver < ApplicationRecord
     has_many :suppliers, through: :deliveries
     validates :name, :email, :password_digest, presence: true
     validates :name, :email, uniqueness: true
+    validate :real_email?
 
-    def driver_deliveries
-        if self.deliveries == []
-            self.deliveries
-        end
+    # def driver_deliveries
+    #     if self.deliveries == []
+    #         self.deliveries
+    #     end
+    # end
+
+    def real_email?
+       if self.email.include?("@") && self.email.last(4).first == "."
+        true
+       else
+        errors.add(:email, "must be valid")
+       end
     end
 
     def new_delivery

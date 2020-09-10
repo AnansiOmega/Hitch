@@ -4,6 +4,12 @@
     
 <h1> Driver Signup </h1>
 
+<% if flash[:error] %>
+<% flash[:error].each do |error| %>
+<%= error %><br>
+<% end %>
+<% end %>
+
 <%= form_for @driver do |f| %>
 <p><%= f.label :name %></p>
 <%= f.text_field :name %>
