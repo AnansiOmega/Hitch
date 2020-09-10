@@ -30,9 +30,25 @@ class BrokersController < ApplicationController
         @broker = Broker.find_by(id: session[:broker_id])
     end
 
+
     def dropped_off
         @broker = Broker.find_by(id: session[:broker_id])
+        @suppliers = Supplier.all
     end
+
+    def drop_off
+        supplier = Supplier.find(params[:id])
+        redirect_to supplier_path(supplier)
+    end
+
+    def history
+        @broker = Broker.find(session[:broker_id])
+        @supplier = Supplier.find_by(id: flash[:supplier_id])
+        if @supplier.nil?
+            redirect_to brokers_dropped_off_path
+        end
+    end
+    
 
     private
 

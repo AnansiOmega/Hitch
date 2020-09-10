@@ -1,0 +1,10 @@
+<h1> <%= "#{@supplier.company}" %> </h1>
+<h3> Location: </h3>
+<%= @supplier.location %>
+<%= button_to "View all your previous orders", broker_history_path(session[:broker_id]), method: :get %>
+
+<h4> All Previous Deliveries: <h4>
+<% @supplier.deliveries.reverse.each do |delivery| %>
+<p>Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> | Broker: <%= delivery.broker.name %> | Driver: <%= delivery.driver.name %> | Date Delivered: <%= delivery.actual_dropoff %> </p>
+<% end %>
+
