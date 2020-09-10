@@ -4,7 +4,7 @@ class Driver < ApplicationRecord
     has_many :brokers, through: :deliveries
     has_many :receivers, through: :deliveries
     has_many :suppliers, through: :deliveries
-    validates :name, :email, :password, presence: true
+    validates :name, :email, :password_digest, presence: true
     validates :name, :email, uniqueness: true
 
    

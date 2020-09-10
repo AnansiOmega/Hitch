@@ -26,3 +26,5 @@
 
 <h3>Actual Dropoff: <%= @delivery.actual_dropoff_display %></h3>
 
+<%= button_to "Delete This delivery", delivery_path(@delivery), method: :delete %>
+

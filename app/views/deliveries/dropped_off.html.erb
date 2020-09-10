@@ -1,4 +1,5 @@
-<h1>hi</h1>
+<h1>Completed Deliveries For <%= "#{@driver.name} "%></h1>
+<%= button_to "Back to Home Page", driver_path(@driver), method: :get %>
 
 
 <% @driver.delivered_delivery.each do |delivery|%>
@@ -10,10 +11,12 @@
 <h4>Location: <%= delivery.receiver.location %></h4>
 
 <h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.actual_arrival_display %></h3>
+<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
+<h3>Actual Pickup: <%= delivery.actual_arrival_display %></h3>
 <h3>Height: <%= delivery.height %></h3>
 <h3>Weight: <%= delivery.weight %></h3>
 <h3>Description: <%= delivery.description %></h3>
-<h3>Status: <%= delivery.status %>
-
+<h3>Actual Dropoff: <%= @delivery.actual_dropoff_display %></h3>
+<h3>Status: <%= delivery.status %><br>
+------------------------------------------------------------------------------------------------------------
 <% end %>

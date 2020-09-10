@@ -1,16 +1,18 @@
-<h1>hi</h1>
+<h1>Deliveries In Transit</h1>
+<%= button_to "Back to Home Page", driver_path(@driver), method: :get %>
 
-
+<% if !@driver.transit_delivery.blank? %>
 <% @driver.transit_delivery.each do |delivery|%>
 
-<h3>Supplier: <%= delivery.supplier.company %></h3>
-<h4>Location: <%= delivery.supplier.location %></h4>
+<h4>Supplier: <%= delivery.supplier.company %></h3>
+<h5>Location: <%= delivery.supplier.location %></h4>
 
 <h3>Receiver: <%= delivery.receiver.company %></h3>
-<h4>Location: <%= delivery.receiver.location %></h4>
+<h4>Drop Off Location: <%= delivery.receiver.location %></h4>
 
 <h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.actual_arrival_display %></h3>
+<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
+<h3>Actual Pickup: <%= delivery.actual_arrival_display %></h3>
 <h3>Height: <%= delivery.height %></h3>
 <h3>Weight: <%= delivery.weight %></h3>
 <h3>Description: <%= delivery.description %></h3>
@@ -20,4 +22,8 @@
 
 <p><%= button_to "Finish Delivery", dropoff_path(delivery), method: :patch %></p>
 
+<% end %>
+
+<% else %>
+<h3> You are not in the process of making a delivery </h3>
 <% end %>
