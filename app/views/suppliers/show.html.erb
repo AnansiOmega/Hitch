@@ -1,0 +1,15 @@
+<div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+  </div>
+
+
+<h1> <%= "#{@supplier.company}" %> </h1>
+<h3> Location: </h3>
+<%= @supplier.location %>
+<p><%= button_to "View all your previous orders", broker_history_path(session[:broker_id]), method: :get %></p>
+
+<h4> All Previous Deliveries: <h4>
+<% @supplier.deliveries.reverse.each do |delivery| %>
+<p>Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> | Broker: <%= delivery.broker.name %> | Driver: <%= delivery.driver.name %> | Status: <%= delivery.status %> </p>
+<% end %>
+

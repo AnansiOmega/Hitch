@@ -1,6 +1,6 @@
 class DeliveriesController < ApplicationController
     before_action :authorized_broker, :authorized_driver
-    before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff]
+    before_action :find_delivery, only: [:show, :destroy, :pickup, :dropoff, :transit, :dropped_off]
     skip_before_action :authorized_driver, except: [:pickup, :dropoff]
     skip_before_action :authorized_broker
 
@@ -28,29 +28,25 @@ class DeliveriesController < ApplicationController
 
     def destroy 
         @delivery.destroy
-        redirect_back fallback_location: brokers_path
+        redirect_to broker_path(session[:broker_id])
     end
 
     def pickup
-        @delivery = Delivery.find(params[:id])
         @delivery.pickup
         redirect_to delivery_transit_path(@delivery)
     end
 
     def dropoff
-        @delivery = Delivery.find(params[:id])
         @delivery.dropoff
         redirect_to delivery_dropped_off_path(@delivery)
     end
 
     def transit
-        delivery = Delivery.find(params[:id])
-        @driver = delivery.driver
+        @driver = @delivery.driver
     end
 
     def dropped_off
-        delivery = Delivery.find(params[:id])
-        @driver = delivery.driver
+        @driver = @delivery.driver
     end
 
     private

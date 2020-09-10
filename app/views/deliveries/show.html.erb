@@ -1,6 +1,7 @@
-<div class="logo">
-        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
-        </div>
+
+    <div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
+  </div>
         
 <h1>Delivery Show Page</h1>
 
@@ -14,17 +15,17 @@
 <h4>Location: <%= @delivery.receiver.location %></h4>
 
 <h3>Hazardous: <%= @delivery.hazardous %></h3>
-<h3>Pickup Time: <%= @delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
+<h3>Pickup Time: <%= @delivery.scheduled_pickup.strftime("%A, %I:%M %p") %> | <%= @delivery.scheduled_pickup.strftime("%b/ %d/ %G") %> </h3>
 <h3>Height: <%= @delivery.height %></h3>
 <h3>Weight: <%= @delivery.weight %></h3>
 <h3>Description: <%= @delivery.description %></h3>
 
 
 
-
+<% if !@delivery.status == "Delivery Completed" %>
 <p><%= button_to "Pickup", pickup_path(@delivery), method: :patch %></p>
 <p><%= button_to "Dropoff", dropoff_path(@delivery), method: :patch %></p>
-
+<% end %>
 <h3>Actual Pickup: <%= @delivery.actual_arrival_display %></h3>
 
 

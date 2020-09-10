@@ -1,6 +1,6 @@
-    <div class="logo">
-    <%= link_to image_tag("/assets/logo.png"), home_path %><br>
-    </div>
+  <div class="logo">
+    <%= link_to image_tag("/assets/logo.png"), brokers_path %><br>
+  </div>
         
 <p><%= button_to "NEW DELIVERY", new_delivery_path, method: :get %></p>
 <p><%= button_to "TRUCKS IN TRANSIT",  brokers_transit_path, method: :get %></p>
@@ -11,7 +11,7 @@
     <% @broker.deliveries.each do |delivery| %>
         <a class="listinglink" href="<%= delivery_path(delivery) %>">
             <div class="item">
-            Company: <%= delivery.supplier.company %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %>
+            Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> || Company: <%= delivery.supplier.company %> || Located: <%= delivery.supplier.location %> || Destination: <%= delivery.receiver.location %> || <%= delivery.status %>
             </div> 
         </a>
     <% end %>

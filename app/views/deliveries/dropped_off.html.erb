@@ -1,12 +1,11 @@
+
 <div class="logo">
-        <%= link_to image_tag("/assets/logo.png"), home_path %><br>
-        </div>
-
-
-
+    <%= link_to image_tag("/assets/logo.png"), driver_path(session[:driver_id]) %><br>
+  </div>
+    
 
 <h1>Completed Deliveries For <%= "#{@driver.name} "%></h1>
-<%= button_to "Back to Home Page", driver_path(@driver), method: :get %>
+ <%# button_to "Back to Home Page", driver_path(@driver), method: :get %> 
 
 
 <% @driver.delivered_delivery.each do |delivery|%>
