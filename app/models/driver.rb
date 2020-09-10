@@ -7,9 +7,6 @@ class Driver < ApplicationRecord
     validates :name, :email, :password_digest, presence: true
     validates :name, :email, uniqueness: true
 
-   
-    
-
     def driver_deliveries
         if self.deliveries == []
             self.deliveries

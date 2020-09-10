@@ -1,6 +1,7 @@
 
 <img class="logo" src="/assets/logo.png" alt="logo"><br>
 
-<button><%= link_to "Login", driver_login_path, method: :get %></button><br><br>
-
-<button><%= link_to "Sign up", new_driver_path, method: :get %></button>
+<div class="login">
+        <%= link_to image_tag("/assets/login.png"), driver_login_path, method: :get %><br>
+        <%= link_to image_tag("/assets/register.png"), new_driver_path, method: :get %>
+    </div>

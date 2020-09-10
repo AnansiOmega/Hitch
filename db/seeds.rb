@@ -9,11 +9,11 @@ Broker.destroy_all
 puts "Seeding..."
 
 20.times do
-    Broker.create(name: Faker::FunnyName.name, email: Faker::Internet.email, password_digest: Faker::Internet.password)   
+    Broker.create(name: Faker::FunnyName.name, email: Faker::Internet.email, password_digest: "password")   
 end
 
 20.times do
-    Driver.create(name: Faker::FunnyName.two_word_name, email: Faker::Internet.email, password_digest: Faker::Internet.password)
+    Driver.create(name: Faker::FunnyName.two_word_name, email: Faker::Internet.email, password_digest: "password")
 end
 
 20.times do
