@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get '/brokers/transit', to: 'brokers#transit', as: 'brokers_transit'
-  get '/brokers/dropped_off', to: 'brokers#dropped_off', as: 'brokers_dropped_off' 
+  get '/brokers/dropped_off', to: 'brokers#dropped_off', as: 'brokers_dropped_off'
+  post '/brokers/dropped_off', to: 'brokers#dropped_off', as: 'broker_dropped_off'
+  post '/brokers/drop_off', to: 'brokers#drop_off'
+  get '/brokers/history/:id', to: 'brokers#history', as: 'broker_history'
   resources :brokers
   resources :deliveries
   resources :suppliers
