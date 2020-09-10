@@ -9,6 +9,7 @@
 <div class="listing">
     <h4> ↓ Current Deliveries ↓ </h4>
     <% @broker.deliveries.each do |delivery| %>
+        <div class="container">
         <div class="status">
             <% if delivery.status == "Awaiting Pickup" %>
                     <div class="redstatus">
@@ -42,5 +43,6 @@
             </div> 
         </a>
     <% end %>
+    </div>
 </div>
 
