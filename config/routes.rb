@@ -24,6 +24,11 @@ Rails.application.routes.draw do
 
   get '/deliveries/:id/transit', to: 'deliveries#transit', as: 'delivery_transit'
   get '/deliveries/:id/dropped_off', to: 'deliveries#dropped_off', as: 'delivery_dropped_off'  
+  
+  post '/sessions/alerts', to: 'sessions#alert', as: 'broker_alert'
+  delete '/sessions/removeAlert', to: 'sessions#removed_alert', as: 'broker_remove_alert'
+  get '/sessions/removeAlert', to: 'sessions#removed_alert', as: 'broker_removed_alert'
+  
 
 
 

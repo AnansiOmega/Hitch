@@ -3,6 +3,7 @@
     <%= link_to image_tag("/assets/logo.png"), drivers_path %><br>
   </div>
 
+
   <% if @driver.deliveries.last %>
     <p><%= button_to "JOBS IN PROGRESS", delivery_transit_path(@driver.deliveries.last), method: :get %></p>
     <p><%= button_to "WORK HISTORY", delivery_dropped_off_path(@driver.deliveries.last), method: :get %></p>
@@ -51,5 +52,9 @@
           <% end %>
       <% else %>
       <h3> No new jobs assigned to you.</h3>
+     <%= button_to "Request a Delivery", broker_alert_path, method: :post %>
     <% end %>
+      <% if session[:alert] && session[:alert].include?("#{@driver.name} has requested a delivery") %>
+      <h5><%= "A broker has been notified"%></h5>
+      <% end %>
     </div>
