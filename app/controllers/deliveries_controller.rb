@@ -16,7 +16,7 @@ class DeliveriesController < ApplicationController
         @delivery = Delivery.new
     end
 
-    def create
+    def create # Creates a new delivery (directs to sessions to check job requests)
         delivery = Delivery.create(delivery_params)
         if delivery.valid?
         redirect_to broker_remove_alert_path
@@ -31,17 +31,17 @@ class DeliveriesController < ApplicationController
         redirect_to broker_path(session[:broker_id])
     end
 
-    def pickup
+    def pickup # Runs pickup method on specified delivery
         @delivery.pickup
         redirect_to delivery_transit_path(@delivery)
     end
 
-    def dropoff
+    def dropoff # Runs dropoff method on specified delivery
         @delivery.dropoff
         redirect_to delivery_dropped_off_path(@delivery)
     end
 
-    def transit
+    def transit 
         @driver = @delivery.driver
     end
 

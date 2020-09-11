@@ -10,7 +10,7 @@
 
 <div class="listing">
     <h4> ↓ All Deliveries ↓ </h4>
-      <% @supplier.deliveries.reverse.each do |delivery| %>
+      <% @supplier.deliveries.reverse.each do |delivery| %> <%# Shows most recent deliveries for specified supplier %>
         <div class="container">
         <div class="status">
             <% if delivery.status == "Awaiting Pickup" %>

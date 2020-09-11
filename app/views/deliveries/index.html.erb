@@ -5,6 +5,6 @@
     
 <h1>Delivery Index Page</h1>
 
-  <% @deliveries.each do |delivery| %>
+  <% @deliveries.each do |delivery| %> <%# Shows all deliveries %>
     <p>Delivery id: <%= link_to delivery.id, delivery_path(delivery) %></p>
   <% end %>

@@ -8,7 +8,7 @@ class Delivery < ApplicationRecord
     validates :description, presence: true
 
 
-    def end_with_weight?
+    def end_with_weight? # Validates that weight is either t for tons, or l for lbs
         if self.weight.last(3).first == "l"
             true
         elsif self.weight.last(4).first == "t"
@@ -18,21 +18,21 @@ class Delivery < ApplicationRecord
         end
     end
 
-    def this_year?
+    def this_year? # Validates that delivery is not in the past
         if self.scheduled_pickup < Time.now
         errors.add(:scheduled_pickup, "cannot be in the past")
         end
     end
 
 
-    def pickup
+    def pickup # Changes delivery status to "In Transit"
         self.pickup = true
         self.actual_arrival = DateTime.now
         self.status = "In Transit"
         self.save
     end
 
-    def dropoff
+    def dropoff # Changes delivery status to "Delivery Completed"
         self.dropoff = true
         self.actual_dropoff = DateTime.now
         if self.pickup = true
@@ -43,7 +43,7 @@ class Delivery < ApplicationRecord
         self.save
     end
 
-    def actual_arrival_display
+    def actual_arrival_display # Changes actual arrival display to readable format
         if self.actual_arrival == nil
         self.actual_arrival
         else
@@ -51,7 +51,7 @@ class Delivery < ApplicationRecord
         end
     end
 
-    def actual_dropoff_display
+    def actual_dropoff_display # Changes actual dropoff display to readable format
         if self.actual_dropoff == nil
         self.actual_dropoff
         else

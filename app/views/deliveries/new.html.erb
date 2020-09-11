@@ -15,7 +15,7 @@
 
 <div class="new">
 
-<%= form_for @delivery do |f| %>
+<%= form_for @delivery do |f| %> <%# Form for creating a new delivery %>
 
 <%= f.hidden_field :broker_id, :value => session[:broker_id] %>
 
@@ -25,7 +25,7 @@
 <p><%= f.label :receiver %></p>
 <%= f.collection_select :receiver_id, Receiver.all, :id, :company %><br>
 
-<% if session[:alert] %>
+<% if session[:alert] %> <%# If there are requested deliveres, the drivers are shown here %>
 <% session[:alert].uniq.each do |alert| %>
 <%= alert %><br>
 <% end %>

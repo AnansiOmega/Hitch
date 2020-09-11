@@ -4,7 +4,7 @@
 
 <h1> List of Suppliers </h1>
 
-<% @suppliers.each do |supplier| %>
+<% @suppliers.each do |supplier| %> <%# Lists each suppliers company name %>
 <%= link_to supplier.company, supplier_path(supplier) %>
 
 <% end %>

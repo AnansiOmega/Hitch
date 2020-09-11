@@ -8,7 +8,7 @@ class Driver < ApplicationRecord
     validates :name, :email, uniqueness: true
     validate :real_email?
 
-    def real_email?
+    def real_email? # Verifies if email has an @ and the 4th to last position of email field is a period.
        if self.email.include?("@") && self.email.last(4).first == "."
         true
        else
@@ -16,25 +16,25 @@ class Driver < ApplicationRecord
        end
     end
 
-    def new_delivery
+    def new_delivery # Gives an array of deliveries that only have the status of "Awaiting Pickup"
         self.deliveries.filter do |delivery|
             delivery.status == "Awaiting Pickup"
         end
     end
 
-    def transit_delivery
+    def transit_delivery # Gives an array of deliveries that only have the status of "In Transit"
         self.deliveries.filter do |delivery|
             delivery.status == "In Transit"
         end
     end
 
-    def delivered_delivery
+    def delivered_delivery # Gives an array of deliveries that only have the status of "Delivery Completed"
         self.deliveries.filter do |delivery|
             delivery.status == "Delivery Completed"
         end
     end
 
-    def actual_arrival_display
+    def actual_arrival_display # Changes actual arrival display to readable format
         if self.actual_arrival == nil
         self.actual_arrival
         else

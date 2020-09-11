@@ -5,7 +5,7 @@
 <h3> My Deliveries | <%= "#{@supplier.company}" %> </h3>
 
 <div class="listing">
-      <% @supplier.brokers_history(@broker.id).each do |delivery| %>
+      <% @supplier.brokers_history(@broker.id).each do |delivery| %> <%# Iterates through brokers history with specified supplier %>
         <div class="container">
           <div class="status">
             <% if delivery.status == "Awaiting Pickup" %>
