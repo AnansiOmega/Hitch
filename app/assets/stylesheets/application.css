@@ -1,4 +1,3 @@
-
 body {
    margin: 0;
    padding: 0;
@@ -12,7 +11,6 @@ body > div.logout > form > input[type=submit]:nth-child(2){
    background-color: #ffffff;
    border: 2px solid #000000;
    color: #000000;
-   /* padding: 0px 15px; */
    text-align: center;
    text-decoration: none;
    display: inline-block;
@@ -22,7 +20,6 @@ body > div.logout > form > input[type=submit]:nth-child(2){
 
 .logo img {
    width: 200px;
-   /* padding-bottom: 20px; */
    margin: 20px 0px 20px 0px;
 }
 
@@ -53,7 +50,12 @@ body > div.logout > form > input[type=submit]:nth-child(2){
    src: url('app/assets/fonts/Montserrat-Light.otf') format("truetype");
 }
 
-body > form > input[type=submit] {
+body > form > input[type=submit],
+body > div.listing > div > div.item2 > form > input[type=submit]:nth-child(2),
+body > div.listing > div > div.container > div.item2 > form > input[type=submit]:nth-child(2),
+body > div.listing > div > div.container > div.container > div.item2 > form > input[type=submit]:nth-child(2),
+#new_delivery > input[type=submit]:nth-child(26)
+{
    font-family: 'Montserrat-Light';
    background-color: #ffffff;
    border: 2px solid #000000;
@@ -66,10 +68,15 @@ body > form > input[type=submit] {
    margin: 10px 0px 0px 0px;
 }
 
-body > form > input[type=submit]:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
- }
+body > form > input[type=submit]:hover,
+body > div.listing > div > div.item2 > form > input[type=submit]:nth-child(2):hover,
+body > div.listing > div > div.container > div.item2 > form > input[type=submit]:nth-child(2):hover,
+body > div.listing > div > div.container > div.container > div.item2 > form > input[type=submit]:nth-child(2):hover,
+#new_delivery > input[type=submit]:nth-child(26):hover
+{
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
+}
 
  .container {
     display: inline-block;
@@ -129,11 +136,68 @@ body > form > input[type=submit]:hover {
    border-width: 2px 2px 2px 2px;
    padding: 10px 10px 10px 10px;
    margin: 0px 20px 20px 20px;
-   /* border-width: 2px 0px 2px 0px; */
  }
 
  .item:hover {
    transform: scale(1.02);
    transition: all 0.05s ease-in-out;
- }
-  
+
+.item2 {
+   background-color: #DFFBFF;
+   border: solid #000000;
+   border-width: 2px 2px 2px 2px;
+   padding: 10px 10px 10px 10px;
+   margin: 0px 20px 20px 20px;
+}
+
+.item3 {
+   background-color: #DFFBFF;
+   border: solid #000000;
+   border-width: 2px 2px 2px 2px;
+   padding: 10px 10px 10px 10px;
+   margin: 0px 20px 20px 20px;
+   text-align: left;
+}
+
+body > div.listing > div > div > div.item3 > form > input[type=submit]:nth-child(2){
+   font-family: 'Montserrat-Light';
+   background-color: #ffffff;
+   border: 2px solid #000000;
+   color: #000000;
+   padding: 15px 15px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 20px;
+   margin: 10px 0px 0px 0px;
+   float: right;
+}
+
+body > div.listing > div > div > div.item3 > form > input[type=submit]:nth-child(2):hover{
+   transform: scale(1.05);
+   transition: all 0.2s ease-in-out;
+}
+
+.new { 
+   background-color: #ffffff;
+   border: solid #000000;
+   border-width: 5px 0px 3px 0px;
+   box-shadow: 2px 6px 13px 0px rgba(0, 0, 0, 0.48);
+   margin: 20px 0px 40px 0px;
+   padding: 0px 0px 20px 0px;
+   font-family: 'Montserrat-Light';
+}
+
+body > div.new,
+#delivery_supplier_id,
+#delivery_receiver_id,
+#delivery_height,
+#delivery_driver_id,
+#delivery_scheduled_pickup_1i,
+#delivery_scheduled_pickup_2i,
+#delivery_scheduled_pickup_3i,
+#delivery_scheduled_pickup_4i,
+#delivery_scheduled_pickup_5i,
+#delivery_description {
+   font-family: 'Montserrat-Light';
+}
