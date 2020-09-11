@@ -1,7 +1,7 @@
 <div class="logo">
+  
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
-
 
 <h1> <%= "#{@supplier.company}" %> </h1>
 <b>Location:</b> <%= @supplier.location %>
@@ -47,6 +47,4 @@
     <% end %>
     </div>
 </div>
-
-
 

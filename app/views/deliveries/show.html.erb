@@ -17,21 +17,21 @@
                     <div class="redstatus">
                         <b><%= @delivery.status %></b>
                             <div class="id">
-                                <%= @delivery.supplier.company_id %>
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
                             </div>
                     </div>
                 <% elsif @delivery.status == "In Transit" %>
                     <div class="bluestatus">
                         <b><%= @delivery.status %></b>
                             <div class="id">
-                                <%= @delivery.supplier.company_id %>
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
                             </div>
                     </div>
                 <% else %>
                     <div class="greenstatus">
                         <b><%= @delivery.status %></b>
                             <div class="id">
-                                <%= @delivery.supplier.company_id %>
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
                             </div>
                     </div>
                 <% end%>
