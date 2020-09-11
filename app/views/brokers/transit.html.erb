@@ -3,10 +3,12 @@
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
 
-<h3> Trucks In Transit </h3>
+  <h3> <%= @broker.name %> | Broker </h3>
 
-  <% @broker.transit_delivery.each do |delivery| %>
     <div class="listing">
+    <h4> ↓ Trucks In Transit ↓ </h4>
+    <% if !@broker.transit_delivery.blank? %>
+    <% @broker.transit_delivery.each do |delivery| %>
         <div class="container">
           <div class="status">
                 <% if delivery.status == "Awaiting Pickup" %>
@@ -43,3 +45,6 @@
               </div>
           </div>
           <% end %>
+          <% else %>
+      <h3> You have no drivers or trucks in transit. </h3>
+    <% end %>

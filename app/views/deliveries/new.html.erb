@@ -25,11 +25,13 @@
 <p><%= f.label :receiver %></p>
 <%= f.collection_select :receiver_id, Receiver.all, :id, :company %><br>
 
+<div class="request">
 <% if session[:alert] %>
 <% session[:alert].uniq.each do |alert| %>
 <%= alert %><br>
 <% end %>
 <% end %>
+</div>
 
 <p><%= f.label :driver %></p>
 <%= f.collection_select :driver_id, Driver.all, :id, :name %>
