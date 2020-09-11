@@ -11,10 +11,10 @@
 <% end %></h3>
 
 <%= form_for :driver, url: driver_logging_path do |f| %>
-  <p><%= f.label :name %></p>
-  <%= f.text_field :name %>
-  <p><%= f.label :password %></p>
-  <%= f.text_field :password %><br><br>
-  <%= f.submit value: "LOGIN" %>
+<p><%= f.label :name %></p>
+<%= f.text_field :name %>
+<p><%= f.label :password %></p>
+<%= f.password_field :password %><br><br>
+<%= f.submit value: "LOGIN" %>
 <% end %>
 

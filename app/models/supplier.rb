@@ -6,10 +6,11 @@ class Supplier < ApplicationRecord
 
 
 
-    def company_id
+    def company_id(delivery_id)
         x = self.company.first(3).upcase
-        y = rand(111..9999).to_s
-        x + y
+        y = delivery_id * delivery_id 
+        y.to_s.first(7)
+        x + y.to_s
     end
 
     def brokers_history(broker_id)

@@ -17,12 +17,13 @@ end
 end
 
 20.times do
-    Supplier.create(company: Faker::Company.name, location: Faker::Address.city)
+    Supplier.create(company: Faker::Company.name, location: Faker::Address.street_address + ", " + Faker::Address.city)
 end
 
 20.times do
-    Receiver.create(company: Faker::Company.name, location: Faker::Address.city)
+    Receiver.create(company: Faker::Company.name, location: Faker::Address.street_address + ", " + Faker::Address.city)
 end
+
 
 x = ["8'6", "9'6"]
 y = ["Awaiting Pickup", "In Transit", "Delivery Completed"]
