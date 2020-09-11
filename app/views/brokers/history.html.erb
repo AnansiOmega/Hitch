@@ -1,11 +1,45 @@
 <div class="logo">
-    <%= link_to image_tag("/assets/logo.png"), home_path %><br>
+    <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
-    
 
-<h1> Your previous orders for <%= "#{@supplier.company}" %> </h1>
+<h3> My Deliveries | <%= "#{@supplier.company}" %> </h3>
 
-<% @supplier.brokers_history(@broker.id).each do |delivery| %>
-
-<p>Load ID: <%= link_to delivery.supplier.company_id(delivery.id), delivery_path(delivery) %> | Driver: <%= delivery.driver.name %> | Date Delivered: <%= delivery.actual_dropoff %> </p>
-<% end %>
+<div class="listing">
+      <% @supplier.brokers_history(@broker.id).each do |delivery| %>
+        <div class="container">
+          <div class="status">
+            <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                              <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% end%>
+            </div>
+        <a class="listinglink" href="<%= delivery_path(delivery) %>">
+            <div class="item">
+                <div class="subitem">
+                    <b>Driver:</b> <%= delivery.driver.name %> ﹒ <b>Broker:</b> <%= delivery.broker.name %> ﹒ <b>Location:</b> <%= delivery.supplier.location %> 
+                    <br><b>Receiver:</b> <%= delivery.receiver.company %> ﹒ <b>Destination:</b> <%= delivery.receiver.location %>
+                    <br> <b>Delivered (Actual):</b> <%= delivery.actual_dropoff %>
+                </div>
+            </div> 
+        </a>
+    <% end %>
+    </div>
+</div>
