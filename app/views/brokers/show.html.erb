@@ -4,11 +4,11 @@
         
 <p><%= button_to "NEW DELIVERY", new_delivery_path, method: :get %></p>
 <p><%= button_to "TRUCKS IN TRANSIT",  brokers_transit_path, method: :get %></p>
-<p><%= button_to "PREVIOUS DELIVERIES", brokers_dropped_off_path, method: :get %></p>
+<p><%= button_to "DELIVERY HISTORY", brokers_dropped_off_path, method: :get %></p>
 
 <div class="listing">
     <h4> ↓ Current Deliveries ↓ </h4>
-    <% @broker.deliveries.each do |delivery| %>
+    <% @broker_current.each do |delivery| %>
         <div class="container">
         <div class="status">
             <% if delivery.status == "Awaiting Pickup" %>

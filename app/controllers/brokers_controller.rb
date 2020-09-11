@@ -9,6 +9,7 @@ class BrokersController < ApplicationController
 
     def show
         @broker = Broker.find(params[:id])
+        @broker_current = @broker.new_delivery + @broker.transit_delivery
     end
 
     def new
