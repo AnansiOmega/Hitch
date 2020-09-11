@@ -7,7 +7,7 @@
 <div class="listing">
     <h4> ↓ Completed Jobs ↓ </h4>
       <% if !@driver.delivered_delivery.blank? %>
-        <% @driver.delivered_delivery.each do |delivery|%>
+        <% @driver.delivered_delivery.each do |delivery|%> <%# If a driver exists, iterates through all of their delivered deliveries %>
           <div class="container">
             <div class="status">
                 <% if delivery.status == "Awaiting Pickup" %>

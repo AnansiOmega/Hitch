@@ -8,14 +8,13 @@ class DriversController < ApplicationController
     
     def show
         @driver = Driver.find(params[:id])
-        # byebug
     end
     
     def new
         @driver = Driver.new
     end
 
-    def create
+    def create # Creates a new driver
         driver = Driver.create(driver_params)
         if driver.valid?
             session[:driver_id] = driver.id

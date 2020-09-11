@@ -16,7 +16,7 @@ class BrokersController < ApplicationController
         @broker = Broker.new
     end
 
-    def create
+    def create # Creates a new broker
         broker = Broker.create(broker_params)
         if broker.valid?
             session[:broker_id] = broker.id

@@ -8,7 +8,7 @@ class SuppliersController < ApplicationController
         @suppliers = Supplier.all
     end
 
-    def show
+    def show 
         @supplier = Supplier.find(params[:id])
         flash[:supplier_id] = @supplier.id
     end

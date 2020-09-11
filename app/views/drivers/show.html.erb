@@ -15,7 +15,7 @@
   <div class="listing">
     <h4> ↓ New Jobs ↓ </h4>
     <% if !@driver.new_delivery.blank? %>
-      <% @driver.new_delivery.each do |delivery|%>
+      <% @driver.new_delivery.each do |delivery|%> <%# If a driver has a new delivery, iterates through all new deliveries %>
           <div class="container">
             <div class="status">
                 <% if delivery.status == "Awaiting Pickup" %>
@@ -51,9 +51,10 @@
             </div>
           <% end %>
       <% else %>
+
       <div class="item2">
           <h3> No new jobs assigned to you.</h3>
-            <%= button_to "Request a Delivery", broker_alert_path, method: :post %>
+            <%= button_to "Request a Delivery", broker_alert_path, method: :post %> <%# If there are no new deliveries Request a delivery button will show %>
     <% end %>
       <% if session[:alert] && session[:alert].include?("#{@driver.name} has requested a delivery") %>
       <h5><%= "Brokers have been notified of your request."%></h5>

@@ -8,7 +8,7 @@
   <%= flash[:error] %>
 <% end %> </h3>
 
-<%= form_for :broker, url:  broker_logging_path do |f| %>
+<%= form_for :broker, url:  broker_logging_path do |f| %> <%# Login form for broker %>
   <p><%= f.label :name %></p>
   <%= f.text_field :name %>
 

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         redirect_to home_path
     end
 
-    def broker_logging
+    def broker_logging # Logs in broker, and verfifies broker
         broker = Broker.find_by(name: params[:broker][:name])
         if broker.nil?
             flash[:error] = "Username or Password is incorrect"
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
         redirect_to home_path
     end
 
-    def driver_logging
+    def driver_logging # Logs in driver, and verifies driver
         driver = Driver.find_by(name: params[:driver][:name])
         if driver.nil?
             flash[:error] = "Username or Password is incorrect"
@@ -41,14 +41,14 @@ class SessionsController < ApplicationController
         end
     end
 
-    def alert
+    def alert # Creates cookie when driver requests a delivery
         driver = Driver.find_by(id: session[:driver_id])
         session[:alert] = []
         session[:alert] += ["#{driver.name} has requested a delivery"]
         redirect_to driver_path(driver)
     end
 
-    def removed_alert
+    def removed_alert # Removes cookie when broker assigns job to driver
         if session[:alert]
             session[:alert].each do |alert|
             driver_name = alert.split(" ")[0]

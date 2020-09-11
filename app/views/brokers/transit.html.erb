@@ -8,7 +8,7 @@
     <div class="listing">
     <h4> ↓ Trucks In Transit ↓ </h4>
     <% if !@broker.transit_delivery.blank? %>
-    <% @broker.transit_delivery.each do |delivery| %>
+    <% @broker.transit_delivery.each do |delivery| %> <%# Iterates through brokers deliveries that are in transit %>
         <div class="container">
           <div class="status">
                 <% if delivery.status == "Awaiting Pickup" %>

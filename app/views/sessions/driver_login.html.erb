@@ -10,7 +10,7 @@
   <%= flash[:error] %>
 <% end %></h3>
 
-<%= form_for :driver, url: driver_logging_path do |f| %>
+<%= form_for :driver, url: driver_logging_path do |f| %> <%# Login form for driver%>
 <p><%= f.label :name %></p>
 <%= f.text_field :name %>
 <p><%= f.label :password %></p>
