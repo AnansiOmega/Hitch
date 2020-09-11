@@ -6,6 +6,9 @@
 <p><%= button_to "TRUCKS IN TRANSIT",  brokers_transit_path, method: :get %></p>
 <p><%= button_to "DELIVERY HISTORY", brokers_dropped_off_path, method: :get %></p>
 
+ <br> 
+<h3> <%= @broker.name %> | Broker </h3>
+
 <div class="listing">
     <h4> ↓ Current Deliveries ↓ </h4>
     <% @broker_current.each do |delivery| %> <%# Iterates through brokers deliveries that are awaiting pickup, and in transit %>
