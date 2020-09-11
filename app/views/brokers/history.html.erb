@@ -7,5 +7,5 @@
 
 <% @supplier.brokers_history(@broker.id).each do |delivery| %>
 
-<p>Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> | Driver: <%= delivery.driver.name %> | Date Delivered: <%= delivery.actual_dropoff %> </p>
+<p>Load ID: <%= link_to delivery.supplier.company_id(delivery.id), delivery_path(delivery) %> | Driver: <%= delivery.driver.name %> | Date Delivered: <%= delivery.actual_dropoff %> </p>
 <% end %>
