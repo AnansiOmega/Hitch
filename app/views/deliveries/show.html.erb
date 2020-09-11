@@ -2,34 +2,54 @@
     <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
-        
-<h1>Delivery Show Page</h1>
 
-<h5>Status: <%= @delivery.status %></h5>
+<%# if !@delivery.status == "Delivery Completed" %>
+<%# button_to "Pickup", pickup_path(@delivery), method: :patch %>
+<%# button_to "Dropoff", dropoff_path(@delivery), method: :patch %>
+<%# end %>
 
-<h2>Driver: <%= @delivery.driver.name %></h2>
-<h3>Supplier: <%= @delivery.supplier.company %></h3>
-<h4>Location: <%= @delivery.supplier.location %></h4>
+<h3> Delivery Information </h3>
 
-<h3>Receiver: <%= @delivery.receiver.company %></h3>
-<h4>Location: <%= @delivery.receiver.location %></h4>
-
-<h3>Hazardous: <%= @delivery.hazardous %></h3>
-<h3>Pickup Time: <%= @delivery.scheduled_pickup.strftime("%A, %I:%M %p") %> | <%= @delivery.scheduled_pickup.strftime("%b/ %d/ %G") %> </h3>
-<h3>Height: <%= @delivery.height %></h3>
-<h3>Weight: <%= @delivery.weight %></h3>
-<h3>Description: <%= @delivery.description %></h3>
-
-
-
-<% if !@delivery.status == "Delivery Completed" %>
-<p><%= button_to "Pickup", pickup_path(@delivery), method: :patch %></p>
-<p><%= button_to "Dropoff", dropoff_path(@delivery), method: :patch %></p>
-<% end %>
-<h3>Actual Pickup: <%= @delivery.actual_arrival_display %></h3>
-
-
-<h3>Actual Dropoff: <%= @delivery.actual_dropoff_display %></h3>
-
-<%= button_to "Delete This delivery", delivery_path(@delivery), method: :delete %>
-
+    <div class="listing">
+        <div class="container">
+          <div class="status">
+                <% if @delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= @delivery.status %></b>
+                            <div class="id">
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
+                            </div>
+                    </div>
+                <% elsif @delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= @delivery.status %></b>
+                            <div class="id">
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= @delivery.status %></b>
+                            <div class="id">
+                                <%= @delivery.supplier.company_id(@delivery.id) %>
+                            </div>
+                    </div>
+                <% end%>
+                  <div class="item3">
+                    <%= button_to "DELETE", delivery_path(@delivery), method: :delete %>
+                    <h3>Driver: <%= @delivery.driver.name %></h3>
+                    <h3>Supplier: <%= @delivery.supplier.company %></h3>
+                    <h3>Location: <%= @delivery.supplier.location %></h3>
+                    <h3>Receiver: <%= @delivery.receiver.company %></h3>
+                    <h3>Location: <%= @delivery.receiver.location %></h3>
+                    <h3>Hazardous: <%= @delivery.hazardous %></h3>
+                    <h3>Pickup Time (Scheduled): <%= @delivery.scheduled_pickup.strftime("%A, %I:%M %p") %> | <%= @delivery.scheduled_pickup.strftime("%b/ %d/ %G") %> </h3>
+                    <h3>Height: <%= @delivery.height %></h3>
+                    <h3>Weight: <%= @delivery.weight %></h3>
+                    <h3>Description: <%= @delivery.description %></h3>
+                    <h3>Pickup Time (Actual): <%= @delivery.actual_arrival_display %></h3>
+                    <h3>Dropoff Time (Actual): <%= @delivery.actual_dropoff_display %></h3>
+                    </div>
+                </div>
+              </div>
+          </div>

@@ -1,28 +1,50 @@
-
 <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), driver_path(session[:driver_id]) %><br>
   </div>
-    
 
-<h1>Completed Deliveries For <%= "#{@driver.name} "%></h1>
- <%# button_to "Back to Home Page", driver_path(@driver), method: :get %> 
+<h3> <%= @driver.name %> | Driver </h3>
 
-
-<% @driver.delivered_delivery.each do |delivery|%>
-
-<h3>Supplier: <%= delivery.supplier.company %></h3>
-<h4>Location: <%= delivery.supplier.location %></h4>
-
-<h3>Receiver: <%= delivery.receiver.company %></h3>
-<h4>Location: <%= delivery.receiver.location %></h4>
-
-<h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
-<h3>Actual Pickup: <%= delivery.actual_arrival_display %></h3>
-<h3>Height: <%= delivery.height %></h3>
-<h3>Weight: <%= delivery.weight %></h3>
-<h3>Description: <%= delivery.description %></h3>
-<h3>Actual Dropoff: <%= delivery.actual_dropoff_display %></h3>
-<h3>Status: <%= delivery.status %><br>
-------------------------------------------------------------------------------------------------------------
-<% end %>
+<div class="listing">
+    <h4> ↓ Completed Jobs ↓ </h4>
+      <% if !@driver.delivered_delivery.blank? %>
+        <% @driver.delivered_delivery.each do |delivery|%>
+          <div class="container">
+            <div class="status">
+                <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% end%>
+                </div>
+            <div class="item2">
+              <br><b>Supplier:</b> <%= delivery.supplier.company %> ﹒ <b>Location:</b> <%= delivery.supplier.location %>
+              <br> <b>Receiver:</b> <%= delivery.receiver.company %> ﹒ <b>Destination:</b> <%= delivery.receiver.location %>
+              <br> 
+              <br> <b>Pickup Time (Scheduled):</b> <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %> ﹒ <b>Hazardous:</b> <%= delivery.hazardous %>
+              <br> <b>Pickup Time (Actual):</b> <u><%= delivery.actual_arrival_display %></u> ﹒ <b>Height:</b> <%= delivery.height %> ﹒ <b>Weight:</b> <%= delivery.weight %>
+              <br>
+              <br> <b>Dropoff Time (Actual):</b> <u><%= delivery.actual_dropoff_display %></u>
+              <br> <b>Description:</b> <%= delivery.description %>
+            </div>
+          <% end %>
+      <% else %>
+      <h3> You haven't completed any jobs. </h3>
+    <% end %>
+    </div>

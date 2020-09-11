@@ -2,14 +2,44 @@
 <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
-    
 
-<h1> Trucks In Transit </h1>
+<h3> Trucks In Transit </h3>
 
-
-<% @broker.transit_delivery.each do |delivery| %>
-<h3>Driver: <%= delivery.driver.name %> </h3>
-<h3>Traveling From: <%= delivery.supplier.location %><br>
-<h3>Heading to: <%= delivery.receiver.location %><br>
-<h3>ETA: <%= "#{rand(3..20)} Hours "%><br><br><br>
-<% end %>
+  <% @broker.transit_delivery.each do |delivery| %>
+    <div class="listing">
+        <div class="container">
+          <div class="status">
+                <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id(delivery.id) %>
+                            </div>
+                    </div>
+                <% end%>
+                  <div class="item2">
+                    <h3>Driver: <%= delivery.driver.name %> </h3>
+                    <h3>Traveling From: <%= delivery.supplier.location %><br>
+                    <h3>Heading to: <%= delivery.receiver.location %><br>
+                    <h3>ETA: <%= "#{rand(3..20)} Hours "%><br><br><br>
+                    <h3>Pickup Time (Scheduled): <%= delivery.scheduled_pickup.strftime("%A, %I:%M %p") %> | <%= delivery.scheduled_pickup.strftime("%b/ %d/ %G") %> </h3>
+                    <h3>Pickup Time (Actual): <%= delivery.actual_arrival_display %></h3>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <% end %>

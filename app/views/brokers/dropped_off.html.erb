@@ -1,10 +1,50 @@
 <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
-  </div>
-    
+  </div>   
 
-<h1> Completed Deliveries </h1>
-<%= form_tag url: supplier_path(:id), :method => :post, :controller => :brokers, :action => :drop_off  do %>
- <p><%= select_tag :id, options_from_collection_for_select(@suppliers, :id, "company"), {prompt: 'Select Supplier'} %></p>
- <%= submit_tag %>
+<h1> Delivery History </h1>
+  <%= form_tag url: supplier_path(:id), :method => :post, :controller => :brokers, :action => :drop_off  do %>
+    <p><%= select_tag :id, options_from_collection_for_select(@suppliers, :id, "company"), {prompt: 'Select Supplier'} %></p>
+      <%= submit_tag %>
   <% end %>
+
+  <div class="listing">
+    <h4> ↓ My Completed Deliveries ↓ </h4>
+    <% @broker.delivered_delivery.each do |delivery| %>
+        <div class="container">
+        <div class="status">
+            <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% end%>
+            </div>
+        <a class="listinglink" href="<%= delivery_path(delivery) %>">
+            <div class="item">
+                <div class="subitem">
+                    <b>Driver:</b> <%= delivery.driver.name %> ﹒ <b>Supplier:</b> <%= delivery.supplier.company %> ﹒ <b>Location:</b> <%= delivery.supplier.location %> 
+                    <br><b>Receiver:</b> <%= delivery.receiver.company %> ﹒ <b>Destination:</b> <%= delivery.receiver.location %>
+                </div>
+            </div> 
+        </a>
+    <% end %>
+    </div>
+</div>
+

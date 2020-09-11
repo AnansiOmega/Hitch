@@ -1,22 +1,20 @@
 
     
 <div class="logo">
-    <%= link_to image_tag("/assets/logo.png"), drivers_path %><br>
-  </div>
+  <%= link_to image_tag("/assets/logo.png"), drivers_path %><br>
+</div>
 
 <h1> Driver Login </h1>
 
-<h3> <% if flash[:error] %>
-<%= flash[:error] %>
+<h3><% if flash[:error] %>
+  <%= flash[:error] %>
 <% end %></h3>
 
 <%= form_for :driver, url: driver_logging_path do |f| %>
 <p><%= f.label :name %></p>
 <%= f.text_field :name %>
-
 <p><%= f.label :password %></p>
-<%= f.text_field :password %><br><br>
-
+<%= f.password_field :password %><br><br>
 <%= f.submit value: "LOGIN" %>
 <% end %>
 
