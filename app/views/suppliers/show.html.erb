@@ -10,6 +10,6 @@
 
 <h4> All Previous Deliveries: <h4>
 <% @supplier.deliveries.reverse.each do |delivery| %>
-<p>Load ID: <%= link_to delivery.supplier.company_id, delivery_path(delivery) %> | Broker: <%= delivery.broker.name %> | Driver: <%= delivery.driver.name %> | Status: <%= delivery.status %> </p>
+<p>Load ID: <%= link_to delivery.supplier.company_id(delivery.id), delivery_path(delivery) %> | Broker: <%= delivery.broker.name %> | Driver: <%= delivery.driver.name %> | Status: <%= delivery.status %> </p>
 <% end %>
 
