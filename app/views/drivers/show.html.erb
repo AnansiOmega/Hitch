@@ -2,36 +2,54 @@
 <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), drivers_path %><br>
   </div>
-    
-<h1> Hello <%= @driver.name %> </h1>
 
-<h2> Deliveries For today: </h2>
-<% if !@driver.new_delivery.blank? %>
-<% @driver.new_delivery.each do |delivery|%>
+  <% if @driver.deliveries.last %>
+    <p><%= button_to "JOBS IN PROGRESS", delivery_transit_path(@driver.deliveries.last), method: :get %></p>
+    <p><%= button_to "WORK HISTORY", delivery_dropped_off_path(@driver.deliveries.last), method: :get %></p>
+  <% end %>
 
-<h3>Supplier: <%= delivery.supplier.company %></h3>
-<h4>Location: <%= delivery.supplier.location %></h4>
+ <br> 
+<h3> <%= @driver.name %> | Driver </h3>
 
-<h3>Receiver: <%= delivery.receiver.company %></h3>
-<h4>Location: <%= delivery.receiver.location %></h4>
-
-<h3>Hazardous: <%= delivery.hazardous %></h3>
-<h3>Pickup Time: <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %></h3>
-<h3>Height: <%= delivery.height %></h3>
-<h3>Weight: <%= delivery.weight %></h3>
-<h3>Description: <%= delivery.description %></h3>
-<h3> Status: <%= delivery.status %></h3>
-
-
-<p><%= button_to "Start Delivery", pickup_path(delivery), method: :patch %></p>
-
-
-<% end %>
-
-<% else %>
-<h3> There are no jobs assigned to you </h3>
-<% end %>
-<% if @driver.deliveries.last %>
-<p><%= button_to "View Jobs In Progress", delivery_transit_path(@driver.deliveries.last), method: :get %></p>
-<p><%= button_to "View your work history", delivery_dropped_off_path(@driver.deliveries.last), method: :get %></p>
-<% end %>
+  <div class="listing">
+    <h4> ↓ New Jobs ↓ </h4>
+    <% if !@driver.new_delivery.blank? %>
+      <% @driver.new_delivery.each do |delivery|%>
+          <div class="container">
+            <div class="status">
+                <% if delivery.status == "Awaiting Pickup" %>
+                    <div class="redstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% elsif delivery.status == "In Transit" %>
+                    <div class="bluestatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% else %>
+                    <div class="greenstatus">
+                        <b><%= delivery.status %></b>
+                            <div class="id">
+                                <%= delivery.supplier.company_id %>
+                            </div>
+                    </div>
+                <% end%>
+                </div>
+            <div class="item2">
+              <b>Supplier:</b> <%= delivery.supplier.company %> ﹒ <b>Location:</b> <%= delivery.supplier.location %>
+              <br> <b>Receiver:</b> <%= delivery.receiver.company %> ﹒ <b>Destination:</b> <%= delivery.receiver.location %>
+              <br> <b>Pickup Time (Scheduled):</b> <%= delivery.scheduled_pickup.strftime("%A, %H:%M %p") %> ﹒ <b>Hazardous:</b> <%= delivery.hazardous %>
+              <br> <b>Height:</b> <%= delivery.height %> ﹒ <b>Weight:</b> <%= delivery.weight %>
+              <br><br> <b>Description:</b> <%= delivery.description %>
+              <%= button_to "PICKUP", pickup_path(delivery), method: :patch %>
+            </div>
+          <% end %>
+      <% else %>
+      <h3> No new jobs assigned to you.</h3>
+    <% end %>
+    </div>

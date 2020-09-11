@@ -3,9 +3,7 @@
     <%= link_to image_tag("/assets/logo.png"), home_path %><br>
   </div>
     
-
 <h1>Delivery Index Page</h1>
-
 
   <% @deliveries.each do |delivery| %>
     <p>Delivery id: <%= link_to delivery.id, delivery_path(delivery) %></p>
