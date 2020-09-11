@@ -24,4 +24,5 @@ class ApplicationController < ActionController::Base
     def authorized_driver
         redirect_back fallback_location: home_path && flash[:not_logged] = "Only Drivers Please" unless logged_in_driver
     end
+    
 end

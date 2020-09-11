@@ -23,7 +23,7 @@
 <%= f.collection_select :receiver_id, Receiver.all, :id, :company %><br>
 
 <% if session[:alert] %>
-<% session[:alert].each do |alert| %>
+<% session[:alert].uniq.each do |alert| %>
 <%= alert %><br>
 <% end %>
 <% end %>

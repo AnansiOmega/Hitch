@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     before_action :authorized_broker, :authorized_driver, :logged_in_driver, :logged_in_broker
-    skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert]
-    skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert]
+    skip_before_action :authorized_broker, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert,:removed_alert]
+    skip_before_action :authorized_driver, only: [:broker_logout, :broker_logging, :home, :broker_login, :driver_login, :driver_logging, :driver_logout, :alert,:removed_alert]
     
     def broker_logout
         session.delete(:broker_id)
@@ -45,6 +45,18 @@ class SessionsController < ApplicationController
         driver = Driver.find_by(id: session[:driver_id])
         session[:alert] += ["#{driver.name} has requested a delivery"]
         redirect_to driver_path(driver)
+    end
+
+    def removed_alert
+        if session[:alert]
+            session[:alert].each do |alert|
+            driver_name = alert.split(" ")[0]
+                if Delivery.last.driver.name.include?(driver_name)
+                   session[:alert].delete(alert)
+                end
+            end
+        end
+        redirect_to broker_path(Delivery.last.broker_id)
     end
 
 end
