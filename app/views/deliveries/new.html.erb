@@ -2,7 +2,6 @@
 <div class="logo">
     <%= link_to image_tag("/assets/logo.png"), broker_path(session[:broker_id]) %><br>
   </div>
-    
 
 <% x = ["8'6", "9'6"] %>
 
@@ -11,6 +10,10 @@
 <%= error %><br>
 <% end %>
 <% end %>
+
+<h3> New Delivery </h3>
+
+<div class="new">
 
 <%= form_for @delivery do |f| %>
 
@@ -25,7 +28,7 @@
 <p><%= f.label :driver %></p>
 <%= f.collection_select :driver_id, Driver.all, :id, :name %>
 
-<%= f.label :height %>
+<p><%= f.label :height %></p>
 <%= f.select :height, x.map { |value| [value] } %>
 
 <p><%= f.label :weight %> In Lbs/Tons</p>
@@ -45,3 +48,5 @@
 
 <%= f.submit %>
 <% end %>
+
+</div>
