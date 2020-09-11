@@ -25,7 +25,7 @@ ________________________________________________________
 ![login](app/assets/images/screenshot2.png)
 
 **3. After that the navigation is mostly intuitive** 
-* **Notice that the Hitch logo is clickable and opperates as an intuitive navigation button**
+* **Notice that the Hitch logo is clickable and opperates as an inteligent navigation button**
 
 ![logo](app/assets/images/screenshot3.png)
 
