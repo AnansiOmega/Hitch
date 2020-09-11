@@ -20,16 +20,16 @@ ________________________________________________________
 ![homepage](app/assets/images/screenshot1.png)
 
 **2. From here you can select from Driver or Broker**
-**3. Once selected, new users can register, existing users can just login**
+* **Once selected, new users can register, existing users can just login**
 
 ![login](app/assets/images/screenshot2.png)
 
-**4. After that the navigation is mostly intuitive** 
-**5. Notice that the Hitch logo is clickable and opperates as an intuitive navigation button**
+**3. After that the navigation is mostly intuitive** 
+* **Notice that the Hitch logo is clickable and opperates as an intuitive navigation button**
 
 ![logo](app/assets/images/screenshot3.png)
 
- **Clicking it will redirect you to the most helpful page**
+* **Clicking it will redirect you to the most helpful page**
 ________________________________________________________
 ### Creators:
 * Ignas Butautas
