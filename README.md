@@ -1,24 +1,37 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Welcome to Hitch!
 
-Things you may want to cover:
+## An app designed for truck drivers and brokers 
+### To expedite the delivery process
+________________________________________________________
 
-* Ruby version
+## To install 
+1. Open your terminal.
+2. Git clone git@github.com:AnansiOmega/BrokerApp.git
+3. cd into BrokerApp (case sensitive)
+4. Open with code .
+5. Run bundle install
+6. Run rails s to start the server
+________________________________________________________
 
-* System dependencies
+## Getting started 
+**1. In your web browser type http://localhost:3000/ to get to the homepage**
 
-* Configuration
+![homepage](app/assets/images/screenshot1.png)
 
-* Database creation
+**2. From here you can select from Driver or Broker**
+**3. Once selected, new users can register, existing users can just login**
 
-* Database initialization
+![login](app/assets/images/screenshot2.png)
 
-* How to run the test suite
+**4. After that the navigation is mostly intuitive** 
+**5. Notice that the Hitch logo is clickable and opperates as an intuitive navigation button**
 
-* Services (job queues, cache servers, search engines, etc.)
+![logo](app/assets/images/screenshot3.png)
 
-* Deployment instructions
-
-* ...
+ **Clicking it will redirect you to the most helpful page**
+________________________________________________________
+### Creators:
+* Ignas Butautas
+* Matthew Steele
+* Brian Butterly

@@ -142,7 +142,7 @@ body > div.listing > div > div.container > div.container > div.item2 > form > in
    transform: scale(1.02);
    transition: all 0.05s ease-in-out;
 
-.item2 {
+ .item2 {
    background-color: #DFFBFF;
    border: solid #000000;
    border-width: 2px 2px 2px 2px;
