@@ -43,6 +43,7 @@ class SessionsController < ApplicationController
 
     def alert
         driver = Driver.find_by(id: session[:driver_id])
+        session[:alert] = []
         session[:alert] += ["#{driver.name} has requested a delivery"]
         redirect_to driver_path(driver)
     end
